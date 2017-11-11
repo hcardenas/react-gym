@@ -1,0 +1,32 @@
+
+user : {
+	username:  string
+	password:  string
+	profile_pic:  string
+	bio string: string 
+	benchmarks: {}
+	sessions : []
+}
+
+benchmarks: {
+	squat 
+	bench
+	shoulder press
+	deadlift
+	fran
+	cindy
+	mile-run
+	3k-run
+	5k-run
+	10k-run
+	issabelle
+}
+
+sessions : [
+	{
+		url-video
+		date
+		title
+		score
+	}
+]
