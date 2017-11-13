@@ -4,13 +4,15 @@ import NoMatch from "./pages/NoMatch";
 import Home from "./pages/Home";
 import LogIn from "./pages/LogIn";
 import Public from "./pages/Public";
+import Navbar from "./components/Navbar";
 import {Container} from "react-materialize";
 
 const App = () =>
   <Router>
     <div>
       <Container>
-        
+        <Navbar />
+        <br />
         <Switch>
           <Route exact path="/" component={LogIn} />
           <Route exact path="/home" component={Home} />
