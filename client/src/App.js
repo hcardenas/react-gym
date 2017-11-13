@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import LogIn from "./pages/LogIn";
 import Public from "./pages/Public";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 import {Container} from "react-materialize";
 
 const App = () =>
@@ -20,6 +21,7 @@ const App = () =>
 
           <Route component={NoMatch} />
         </Switch>
+        <Footer />
       </Container>
     </div>
   </Router>;
