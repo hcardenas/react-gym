@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import VidModal from '../VidModal';
 
 
 export default class UserVid extends Component {
@@ -21,6 +20,7 @@ export default class UserVid extends Component {
 		      				<div className="col m9">
 								  <div className= "video-container">
 							         <iframe width = "300" height = "200"
+							         	title={element.title}
 							            src = {element.urlVideo}
 							            frameBorder = "0" allowFullScreen></iframe>
 							      </div>
