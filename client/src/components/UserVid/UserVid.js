@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import VidModal from '../VidModal';
-import { Button, Icon} from 'react-materialize';
 
 
 export default class UserVid extends Component {
@@ -20,7 +19,11 @@ export default class UserVid extends Component {
 				            </div>
 				            
 		      				<div className="col m9">
-								  <VidModal />
+								  <div className= "video-container">
+							         <iframe width = "300" height = "200"
+							            src = {element.urlVideo}
+							            frameBorder = "0" allowFullScreen></iframe>
+							      </div>
       						</div>
 				          </div>
 				        </div>
