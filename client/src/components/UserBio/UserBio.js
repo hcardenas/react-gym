@@ -6,7 +6,7 @@ export default class UserBio extends Component {
 	render() {
 		return (
 			<div className="col m12">
-		        <div className="card-panel grey lighten-5 z-depth-1">
+		        <div className="card-panel grey lighten-5 z-depth-3">
 		          <div className="row valign-wrapper">
 		            <div className="col m5">
 		              <img src={this.props.pic} alt="" className="circle responsive-img" /> 
