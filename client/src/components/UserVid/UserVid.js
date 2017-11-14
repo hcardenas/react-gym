@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
+import VidModal from '../VidModal';
+import { Button, Icon} from 'react-materialize';
 
 
 export default class UserVid extends Component {
+
 	render() {
 		return (
 
@@ -16,8 +19,8 @@ export default class UserVid extends Component {
 				            	<p>score: {element.score}</p>
 				            </div>
 				            
-		      				<div className="video-container col m9">
-        						<iframe width="853" height="480" src="//www.youtube.com/embed/Q8TXgCzxEnw?rel=0" frameBorder="0" allowFullScreen></iframe>
+		      				<div className="col m9">
+								  <VidModal />
       						</div>
 				          </div>
 				        </div>

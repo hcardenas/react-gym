@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {Row} from 'react-materialize';
 import UserBio from '../../components/UserBio';
 import UserVid from '../../components/UserVid';
+import UserStats from '../../components/UserStats';
 
 
 export default class Home extends Component {
@@ -35,7 +36,20 @@ export default class Home extends Component {
 				title: "Fran4",
 				score: "1:54"
 			}
-		]
+		],
+		user_stats : {
+			squat : 365,
+			bench: 265,
+			shoulderPress: 185,
+			deadlift: 415,
+			fran: "2:50",
+			cindy: "19r",
+			mileRun: "6:30",
+			threeKRun: "24:00",
+			fiveKRun: "24:00",
+			tenKRun: "24:00",
+			issabelle: "7:00"
+		}
 	}
 
 	componentDidMount() {
@@ -46,15 +60,13 @@ export default class Home extends Component {
 		return (
 			<div>
 				<Row>	
-					<div className="col m6 center-align" >
-						<Row>
-							
-							<UserBio pic={this.state.user_pic} bio={this.state.user_bio}/>
-							
+					<div className="col m6 " >
+						<Row className="center-align">					
+							<UserBio pic={this.state.user_pic} bio={this.state.user_bio}/>	
 						</Row>
 						<Row>
 							<div>
-								user stats
+								<UserStats user_stats={this.state.user_stats}/>
 							</div>
 						</Row>
 

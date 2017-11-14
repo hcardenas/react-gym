@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Footer, NavItem, Icon} from 'react-materialize';
+
 
 
 export default class UserBio extends Component {
