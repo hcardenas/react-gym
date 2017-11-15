@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import {Collection} from 'react-materialize';
-
 
 
 
@@ -11,6 +9,8 @@ export default class LogIn extends Component {
 		return (
 			<div>	
 				LogIn
+				<div className="video-container col m9">
+      			</div>
 			</div>
 		);
 	}
