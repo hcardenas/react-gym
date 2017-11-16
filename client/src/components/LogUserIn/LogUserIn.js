@@ -43,6 +43,7 @@ export default class LogUserIn extends Component {
           />
           <Input 
             placeholder="xxxxxxxxx" 
+            type="password"
             m={6} label="Password" 
             onChange={this.handleInputChange} 
             name="password"

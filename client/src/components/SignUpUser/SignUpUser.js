@@ -46,18 +46,19 @@ export default class SignUpUser extends Component {
         </Row>
         <Row>
           <Input 
-            placeholder="xxxxxxxxx" 
-            m={6} label="User Name" 
-            onChange={this.handleInputChange} 
-            name="password"
-          />
-          <Input 
             type="email" 
             placeholder="JohnDoe@email.com" 
             label="Email" 
             s={6} 
             onChange={this.handleInputChange} 
             name="email"
+          />
+          <Input 
+            placeholder="xxxxxxxxx" 
+            type="password"
+            m={6} label="Password" 
+            onChange={this.handleInputChange} 
+            name="password"
           />
           <a className="waves-effect waves-light btn" onClick={this.firebaseLogin}>Sign Up</a>
         </Row>
