@@ -36,7 +36,7 @@ export default class SignUpUser extends Component {
           firebase_id: e.uid
         }).then(dbUser => {
           console.log("user created");
-          API.getFireBaseUser(e.uid).then(dbFBUser => {
+          API.getFireBaseUser(FBid).then(dbFBUser => {
             console.log("Firebase User found");
             console.log(dbFBUser);
             API.createBenchmark({}, dbFBUser._id).then(dbBenchmark => {console.log("benchmark created");})

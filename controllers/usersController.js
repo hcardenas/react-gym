@@ -21,7 +21,7 @@ module.exports = {
   findByFirebase: function(req, res) {
     console.log(req.params.id);
     db.User
-      .find({'firebase_id': req.params.id})
+      .findOne({'firebase_id': req.params.id})
       .populate("sessions")
       .populate("benchmarks")
       .then(dbModel => res.json(dbModel))
