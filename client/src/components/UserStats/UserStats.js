@@ -22,12 +22,9 @@ export default class UserStats extends Component {
 				<li key={i} className="collection-item avatar">
 					<img src="http://workoutboss.com/wp-content/uploads/2012/04/WOB-Logo-625x663.jpg" alt="" className="circle" />
 					<span className="title">{i}</span>
-					<p>{obj[i]} 
+					<p onClick={()=> alert("wow")}>{obj[i]} 
 					</p>
 					<a href="#!" className="secondary-content"><i className="material-icons">grade</i></a>
-					 
-
-
 				</li>);
 		}
 
