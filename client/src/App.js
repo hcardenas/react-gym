@@ -49,7 +49,7 @@ export default class App extends Component {
     return (<div>
               <Router>      
                 <Container>
-                  <Navbar isUserlogged={this.state.userLoggedin} that={this} />
+                  <Navbar isUserlogged={this.state.userLoggedin} signOutUser={this.signOutUser} />
                   <br />
                   
                   { 
