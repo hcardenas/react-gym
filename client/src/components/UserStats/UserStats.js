@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import * as firebase from 'firebase';
 
 
 export default class UserStats extends Component {
@@ -11,6 +11,9 @@ export default class UserStats extends Component {
 		this.setState({
 			stats: this.props.user_stats 
 		});
+
+		console.log(firebase.auth().currentUser);
+
 	}
 
 	render() {

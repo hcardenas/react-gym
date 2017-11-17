@@ -26,7 +26,7 @@ export default class SignUpUser extends Component {
 
     const promise = auth.createUserWithEmailAndPassword(this.state.email, this.state.password);
 
-    promise.then(e => {console.log('user created and logged in' + e)});
+    promise.then(e => {console.log( e.uid)});
     promise.catch(e => {console.log(e.message)});
 
   };

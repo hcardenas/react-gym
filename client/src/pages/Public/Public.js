@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import Chat from '../../components/Chat';
 
 
 export default class Public extends Component {
@@ -8,7 +8,7 @@ export default class Public extends Component {
 	render() {
 		return (
 			<div>	
-				Public
+				<Chat />
 			</div>
 		);
 	}

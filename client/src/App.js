@@ -19,7 +19,7 @@ export default class App extends Component {
     userLoggedin : false
   };
 
-  componentDidMount() {
+  componentDidMount = () => {
 
     const auth = firebase.auth();
 
@@ -31,8 +31,8 @@ export default class App extends Component {
       this.setState({
           userLoggedin: flag
         });
-      
     });
+
   };
 
 
