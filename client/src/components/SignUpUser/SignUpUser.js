@@ -26,7 +26,13 @@ export default class SignUpUser extends Component {
 
     const promise = auth.createUserWithEmailAndPassword(this.state.email, this.state.password);
 
-    promise.then(e => {console.log( e.uid)});
+    promise.then(e => {
+      e.updateProfile({
+        displayName: this.state.username
+      }).then(() => console.log("user updated"));
+      ;
+      console.log( e.uid)
+    });
     promise.catch(e => {console.log(e.message)});
 
   };

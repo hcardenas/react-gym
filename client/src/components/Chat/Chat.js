@@ -1,22 +1,24 @@
 import React, { Component } from 'react';
 import {Input} from 'react-materialize';
 import openSocket from 'socket.io-client';
+import * as firebase from 'firebase'
+
 
 export default class Chat extends Component {
 
 	state = {
 		messages: [],
 		socket: openSocket('http://localhost:3001'),
-		inputChat: ""
+		inputChat: "",
+		user : firebase.auth().currentUser.displayName
 	};
 
 	componentDidMount = () => {
 		
 		this.state.socket.on('send-msg', (msg) => {
 			console.log(`client recieved ${msg}`);
-			console.log();
 			var newMsg = this.state.messages;
-
+			var user = this.state.user;
 			newMsg.push(msg);
 			
 			this.setState({
@@ -34,7 +36,7 @@ export default class Chat extends Component {
 
 	handleSubmit = (e) => {
 		e.preventDefault();
-		this.state.socket.emit('new-msg', this.state.inputChat);
+		this.state.socket.emit('new-msg', `${this.state.user}: ${this.state.inputChat}`);
 		
 	}
 
