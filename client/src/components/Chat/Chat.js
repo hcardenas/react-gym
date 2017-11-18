@@ -62,7 +62,8 @@ export default class Chat extends Component {
 						<ChatList messages={this.state.messages} />
 					</ul>
 					<hr />
-					<div className='center-align'>
+					
+					<div className='center-align' id='inputChat'>
 						<input 
 							type='text' 
 							name='inputChat' 

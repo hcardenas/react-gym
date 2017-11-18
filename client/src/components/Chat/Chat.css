@@ -2,6 +2,15 @@
 	min-height: 450px;
 	height: auto;
 
-
+	position:relative
     
+}
+
+
+#inputChat {
+	position:absolute;
+	bottom:0;
+
+	left: 50%;
+    margin: 0 0 0 -100px;
 }
