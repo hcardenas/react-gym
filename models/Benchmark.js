@@ -31,15 +31,15 @@ var BenchmarkSchema = new Schema({
 		type: String,
 		default: "N/A"
 	},
-	3k_run: {
+	Threek_run: {
 		type: String,
 		default: "N/A"
 	},
-	5k_run: {
+	Fivek_run: {
 		type: String,
 		default: "N/A"
 	},
-	10k_run: {
+	Tenk_run: {
 		type: String,
 		default: "N/A"
 	},

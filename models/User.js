@@ -31,7 +31,7 @@ var UserSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: "Session"
   }],
-  benchmarks: {
+  benchmark: {
     type: Schema.Types.ObjectId,
     ref: "Benchmark"
   }

@@ -44,11 +44,13 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   createBenchmark: function(req, res) {
+    console.log('here');
     db.Benchmark
-      .create(req.body)
+      .create({bench: "N/A"})
       .then(function (dbBenchmark) {
+        console.log('created benchmark');
         db.User
-          .findOneAndUpdate({_id: req.params.id}, {$set: {benchmarks: dbBenchmark}})
+          .findOneAndUpdate({firebase_id: req.params.id}, {$set: {benchmark: dbBenchmark}})
           .then(function(dbRes) {res.json(dbRes)})
       })
       .catch(err => res.status(422).json(err));
