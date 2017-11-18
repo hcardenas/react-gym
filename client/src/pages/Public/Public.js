@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Chat from '../../components/Chat';
-import {Row} from 'react-materialize';
-import UserVid from '../../components/UserVid';
+import {Row, Collapsible} from 'react-materialize';
+import PublicUserVid from '../../components/PublicUserVid';
 
 
 export default class Public extends Component {
@@ -44,8 +44,10 @@ export default class Public extends Component {
 			<Row>
 				
 				<div className="col m6 " >
-					<Row className="center-align">					
-					<UserVid sessions={this.state.sessions}/> 
+					<Row className="center-align">	
+										
+							<PublicUserVid sessions={this.state.sessions}/> 
+						
 					</Row>
 
 				</div>

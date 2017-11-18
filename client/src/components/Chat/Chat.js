@@ -3,7 +3,7 @@ import ChatList from '../ChatList';
 import openSocket from 'socket.io-client';
 import * as firebase from 'firebase'
 import {Row} from 'react-materialize';
-
+import ReactDOM from 'react-dom';
 import './Chat.css';
 
 
@@ -30,8 +30,14 @@ export default class Chat extends Component {
 			this.setState({
 				messages : newMsg
 			});
+			this.scrollToBottom();
 		});
 	};
+
+	scrollToBottom = () => {
+	  const node = ReactDOM.findDOMNode(this.messagesEnd);
+	  node.scrollIntoView({ behavior: "smooth" });
+	}
 
 	handleInputChange = event => {
 	    const { name, value } = event.target;
@@ -64,6 +70,9 @@ export default class Chat extends Component {
 								<ChatList messages={this.state.messages} />
 							</ul>
 						</div>
+						<div style={{ float:"left", clear: "both" }}
+				             ref={(el) => { this.messagesEnd = el; }}>
+				        </div>
 					</div>
 					<br/><br/>
 
