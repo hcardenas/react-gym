@@ -7,7 +7,9 @@ import Public from "./pages/Public";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import {Container} from "react-materialize";
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
+
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+
 import * as firebase from 'firebase';
 
 
@@ -48,7 +50,7 @@ export default class App extends Component {
   render() {
     return (<div>
               <Router>     
-                <MuiThemeProvider>
+                <MuiThemeProvider >
                 <Container>
                   <Navbar isUserlogged={this.state.userLoggedin} signOutUser={this.signOutUser} />
                   <br />

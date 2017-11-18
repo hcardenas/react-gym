@@ -67,10 +67,11 @@ export default class Chat extends Component {
 							type='text' 
 							name='inputChat' 
 							onChange={this.handleInputChange}
+							className='col m8'
 						/> 
-						<br/>
+						
 
-						<button onClick={this.handleSubmit} className='waves-effect waves-light btn large'>
+						<button onClick={this.handleSubmit} className='waves-effect waves-light btn col m3 offset-m1'>
 							<i className="large material-icons">send</i>
 						</button> 
 					</div>
