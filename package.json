@@ -17,10 +17,20 @@
     "nodemon": "^1.11.0"
   },
   "dependencies": {
+    "express": "^4.15.4",
+    "http": "^0.0.0",
+    "mongoose": "^4.13.3",
+    "socket.io": "^2.0.4",
+    "socket.io-client": "^2.0.4",
     "axios": "^0.16.2",
+<<<<<<< HEAD
     "body-parser": "^1.18.2",
     "express": "^4.16.2",
     "mongoose": "^4.13.4",
     "react-router-dom": "^4.2.2"
+=======
+    "body-parser": "^1.17.2",
+    "react-router-dom": "^4.1.2"
+>>>>>>> fd0c1fcd68f48c80a1ab7e158c505a6a0a16619e
   }
 }

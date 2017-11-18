@@ -8,18 +8,20 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import {Container} from "react-materialize";
 
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+
 import * as firebase from 'firebase';
 
 
 
 
 export default class App extends Component {
-
+  
   state = {
     userLoggedin : false
   };
 
-  componentDidMount() {
+  componentDidMount = () => {
 
     const auth = firebase.auth();
 
@@ -31,8 +33,8 @@ export default class App extends Component {
       this.setState({
           userLoggedin: flag
         });
-      
     });
+
   };
 
 
@@ -47,9 +49,10 @@ export default class App extends Component {
 
   render() {
     return (<div>
-              <Router>      
+              <Router>     
+                <MuiThemeProvider >
                 <Container>
-                  <Navbar isUserlogged={this.state.userLoggedin} that={this} />
+                  <Navbar isUserlogged={this.state.userLoggedin} signOutUser={this.signOutUser} />
                   <br />
                   
                   { 
@@ -73,6 +76,7 @@ export default class App extends Component {
                   
                   <Footer />
                 </Container>
+                </MuiThemeProvider>
               </Router>
             </div>
     );
