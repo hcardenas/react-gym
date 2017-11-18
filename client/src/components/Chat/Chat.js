@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
-import {Input} from 'react-materialize';
+import ChatList from '../ChatList';
 import openSocket from 'socket.io-client';
 import * as firebase from 'firebase'
+
+import './Chat.css';
+
 
 
 export default class Chat extends Component {
 
 	state = {
 		messages: [],
-		socket: openSocket('http://localhost:3001'),
+		socket: openSocket(`http://localhost:${process.env.PORT || 3001}`),
 		inputChat: "",
 		user : firebase.auth().currentUser.displayName
 	};
@@ -16,9 +19,11 @@ export default class Chat extends Component {
 	componentDidMount = () => {
 		
 		this.state.socket.on('send-msg', (msg) => {
-			console.log(`client recieved ${msg}`);
+			console.log(`client recieved:`);
+			console.log(`${JSON.stringify(msg)}`);
+			console.log('-----------------');
 			var newMsg = this.state.messages;
-			var user = this.state.user;
+			
 			newMsg.push(msg);
 			
 			this.setState({
@@ -35,8 +40,13 @@ export default class Chat extends Component {
   	};
 
 	handleSubmit = (e) => {
-		e.preventDefault();
-		this.state.socket.emit('new-msg', `${this.state.user}: ${this.state.inputChat}`);
+		//e.preventDefault();
+		let obj = {
+			user: this.state.user,
+			msg: this.state.inputChat
+		};
+		
+		this.state.socket.emit('new-msg', obj );
 		
 	}
 
@@ -45,11 +55,26 @@ export default class Chat extends Component {
 		//let msgArr = ;
 
 		return (
-			<div>
-				<ul>
-					{this.state.messages.map((ele, i)=> <li key={i}>{ele}</li>)}
-				</ul>
-				<Input type='text' name='inputChat' onChange={this.handleInputChange}/> <button onClick={this.handleSubmit}>clickme</button> 
+			<div className='col m12'>
+				<div className='Chat card-panel grey lighten-5 z-depth-3'>
+
+					<ul>
+						<ChatList messages={this.state.messages} />
+					</ul>
+					<hr />
+					<div className='center-align'>
+						<input 
+							type='text' 
+							name='inputChat' 
+							onChange={this.handleInputChange}
+						/> 
+						<br/>
+
+						<button onClick={this.handleSubmit} className='waves-effect waves-light btn large'>
+							<i className="large material-icons">send</i>
+						</button> 
+					</div>
+				</div>
 			</div>
 		);
 	}
