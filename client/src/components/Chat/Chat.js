@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ChatList from '../ChatList';
 import openSocket from 'socket.io-client';
 import * as firebase from 'firebase'
+import {Row} from 'react-materialize';
 
 import './Chat.css';
 
@@ -57,13 +58,17 @@ export default class Chat extends Component {
 		return (
 			<div className='col m12'>
 				<div className='Chat card-panel grey lighten-5 z-depth-3'>
+					<div className="row" id="chatPanel">
+						<div className="col m12">
+							<ul>
+								<ChatList messages={this.state.messages} />
+							</ul>
+						</div>
+					</div>
+					<br/><br/>
 
-					<ul>
-						<ChatList messages={this.state.messages} />
-					</ul>
-					<hr />
-					
 					<div className='center-align' id='inputChat'>
+						<hr />
 						<input 
 							type='text' 
 							name='inputChat' 
