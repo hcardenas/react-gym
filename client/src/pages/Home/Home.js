@@ -3,6 +3,7 @@ import {Row} from 'react-materialize';
 import UserBio from '../../components/UserBio';
 import UserVid from '../../components/UserVid';
 import UserStats from '../../components/UserStats';
+import API from '../../utils/API';
 
 
 export default class Home extends Component {
@@ -54,6 +55,7 @@ export default class Home extends Component {
 
 	componentDidMount() {
 		console.log("inside componentDidMount make Api call to get info");
+		// API.getFireBaseUser(firebase.auth().currentUser.uid).then(data =>)
 	}
 
 	render() {
