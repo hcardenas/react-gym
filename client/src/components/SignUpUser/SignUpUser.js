@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Row, Input} from 'react-materialize';
 import * as firebase from 'firebase';
+import API from '../../utils/API';
 
 
 export default class SignUpUser extends Component {
@@ -27,12 +28,23 @@ export default class SignUpUser extends Component {
     const promise = auth.createUserWithEmailAndPassword(this.state.email, this.state.password);
 
     promise.then(e => {
+
+      console.log('user created and logged in' + e);
+      var FBid = e.uid;
       e.updateProfile({
         displayName: this.state.username
       }).then(() => console.log("user updated"));
-      ;
-      console.log( e.uid)
-    });
+    
+      API.createUser({
+          username: this.state.username,
+          email: this.state.email,
+          firebase_id: e.uid
+        }).then(dbUser => {
+          console.log("user created");
+            API.createBenchmark({}, FBid).then(dbBenchmark => {console.log("benchmark created");})
+        });
+      });
+
     promise.catch(e => {console.log(e.message)});
 
   };
