@@ -79,6 +79,33 @@ export default class Home extends Component {
 						</Row>
 					</div>
 				</Row>
+				<Row>
+					<div className="col s1 offset-11">
+						<div className="fixed-action-btn">
+							<a className="btn-floating btn-large red">
+								<i className="large material-icons">mode_edit</i>
+							</a>
+							<ul>
+							    <li>
+							    	<a className="btn-floating red">
+							    		<i className="material-icons">account_circle</i>
+							    	</a>
+							    </li>
+      							<li>
+      								<a className="btn-floating yellow darken-1">
+      									<i className="material-icons">assessment</i>
+      								</a>
+      							</li>
+      							<li>
+      								<a className="btn-floating green">
+      									<i className="material-icons">videocam</i>
+      								</a>
+      							</li>
+							</ul>
+						</div>
+					</div>
+				</Row>
+				
 			</div>
 		);
 	}
