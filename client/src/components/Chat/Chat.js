@@ -37,7 +37,7 @@ export default class Chat extends Component {
 	scrollToBottom = () => {
 	  const node = ReactDOM.findDOMNode(this.messagesEnd);
 	  node.scrollIntoView({ behavior: "smooth" });
-	}
+	};
 
 	handleInputChange = event => {
 	    const { name, value } = event.target;
@@ -54,6 +54,9 @@ export default class Chat extends Component {
 		};
 		
 		this.state.socket.emit('new-msg', obj );
+
+		// use this code to create new session
+		//this.state.socket.emit('new-session', {} );
 		
 	}
 

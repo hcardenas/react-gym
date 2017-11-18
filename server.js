@@ -49,4 +49,9 @@ io.on('connection', function(socket) {
 		console.log(`server recieved ${msg}`);
 		io.emit('send-msg', msg);
 	});
+
+	socket.on('new-session', function(msg) {
+		console.log(`server recieved signal of a new session`);
+		io.emit('send-session', {});
+	});
 });
