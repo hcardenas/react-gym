@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import {Navbar, NavItem, Icon} from 'react-materialize';
+import * as firebase from 'firebase';
 
 
 export default class Nav extends Component {
 	render() {
 		return (
 			<Navbar brand='logo' right>
-				<NavItem href='get-started.html'><Icon>search</Icon></NavItem>
-				<NavItem href='get-started.html'><Icon>view_module</Icon></NavItem>
-				<NavItem href='get-started.html'><Icon>refresh</Icon></NavItem>
-				<NavItem href='get-started.html'><Icon>more_vert</Icon></NavItem>
+				<NavItem href='/'><Icon left>home</Icon>Home</NavItem>
+				<NavItem href='/public'><Icon left>public</Icon>Public</NavItem>
+				{(this.props.isUserlogged === false ? "" : <NavItem href='/' onClick={ () => {this.props.signOutUser()} }>Logout</NavItem>)}
 			</Navbar>
 		);
 	}
