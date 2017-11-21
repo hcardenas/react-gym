@@ -1,63 +1,74 @@
 import React, { Component } from 'react';
+import {Row} from 'react-materialize';
 const ContentEditable = require('react-wysiwyg');
 
 
-
-export default class UserBio extends Component {
-
-	state: {
-		text: '',
+export default class EditUserBio extends Component {
+	State = {
 		editing: false,
-		html: 'default text'
-	}
+		section: "",
+		input: ""
+	};
 
-	onChange = (textContent, setPlaceholder)=> {
-		if(setPlaceholder) {
-			this.setState({
-				placeholder: true,
-				html: ''
-			})
-		} else {
-			this.setState({
-				placeholder: false,
-				html: textContent
-			})
+	onCLick = ()=> {
+		if (this.state.editing) {
+			return(<div className="input-field"><textarea id="textarea1" className="materialize-textarea"></textarea></div>);
 		}
+
+		this.setState({
+			editing: true
+		});
 	}
 
-	enableEditing = ()=> {
-		this.setState({ editing: true });
-	}
+	handleInputChange = event => {
+		let value = event.target.value;
+		const name = event.target.name;
 
+		this.setState({
+			[name]:value
+		});
+	};
+
+	handleFormSubmit = event => {
+		event.preventDefault();
+
+		this.setState({
+			editing: false,
+			section: "",
+			input: ""
+		});
+	}
 
 
 	render() {
 		return (
-			<div className="col m12">
-		        <div className="card-panel grey lighten-5 z-depth-3">
-		          <div className="row valign-wrapper">
-		            <div className="col m5">
-		              <img src={this.props.pic} alt="" className="circle responsive-img" /> 
-
-		            </div>
-		            <div className="col m7" onClick={this.enableEditing}>
-		              <span className="black-text">
-		              <ContentEditable
-		              	tagName= 'span'
-		              	onChange={this.onChange}
-		              	html={this.state.html}
-		              	preventStyling
-		              	noLineBreaks
-		              	placeholder={this.state.placeholder}
-		              	placeholderText={this.props.bio}
-		              	editing={this.state.editing}
-		              	/>
-		              </span>
-		            </div>
-		          </div>
-		        </div>
-		    </div>
-		);
+				<Row>
+					<div className="col s1 offset-11">
+						<div className="fixed-action-btn">
+							<a className="btn-floating btn-large red">
+								<i className="large material-icons">mode_edit</i>
+							</a>
+							<ul>
+							    <li>
+							    	<a className="btn-floating red">
+							    		<i className="material-icons">account_circle</i>
+							    	</a>
+							    </li>
+      							<li>
+      								<a className="btn-floating yellow darken-1">
+      									<i className="material-icons">assessment</i>
+      								</a>
+      							</li>
+      							<li>
+      								<a className="btn-floating green">
+      									<i className="material-icons">videocam</i>
+      								</a>
+      							</li>
+							</ul>
+						</div>
+					</div>
+				</Row>
+			)
 	}
 }
 

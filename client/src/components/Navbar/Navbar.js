@@ -19,6 +19,7 @@ export default class Nav extends Component {
 						<li><a href="/" >Home</a></li>
 						<li><a href="/public">Public</a></li>
 						{(this.props.isUserlogged === false ? "" : <li><a href="/" onClick={ () => {this.props.signOutUser()} }>Log out</a></li>   )}
+
 						
 					</ul>
 					<ul className="side-nav" id="mobile-demo">
