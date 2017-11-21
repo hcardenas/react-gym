@@ -4,6 +4,7 @@ import UserBio from '../../components/UserBio';
 import UserVid from '../../components/UserVid';
 import UserStats from '../../components/UserStats';
 import API from '../../utils/API';
+import EditUserBio from '../../components/EditUserBio';
 
 
 export default class Home extends Component {
@@ -64,7 +65,8 @@ export default class Home extends Component {
 				<Row>	
 					<div className="col m6 " >
 						<Row className="center-align">					
-							<UserBio pic={this.state.user_pic} bio={this.state.user_bio}/>	
+							<UserBio pic={this.state.user_pic} bio={this.state.user_bio}/>
+							<EditUserBio pic={this.state.user_pic} bio={this.state.user_bio}/>
 						</Row>
 						<Row>
 							<div>
