@@ -5,7 +5,7 @@ var Schema = mongoose.Schema;
 var SessionSchema = new Schema({
   	url_video: {
   		type: String,
-  		required: false
+  		required: false,
 	},
 	date: {
 		type: Date,
@@ -13,11 +13,13 @@ var SessionSchema = new Schema({
 	},
 	title: {
 		type: String,
-		required: true
+		required: true,
+		default: "Today's Session"
 	},
 	score: {
 		type: String,
-		required: true
+		required: true,
+		default: "N/A"
 	}
 });
 
