@@ -5,6 +5,7 @@ import UserVid from '../../components/UserVid';
 import UserStats from '../../components/UserStats';
 import API from '../../utils/API';
 import EditUserBio from '../../components/EditUserBio';
+import ContentEditable from 'react-wysiwyg';
 
 
 export default class Home extends Component {
@@ -51,12 +52,22 @@ export default class Home extends Component {
 			fiveKRun: "24:00",
 			tenKRun: "24:00",
 			issabelle: "7:00"
-		}
+		},
+		text: "",
+		editing: false
 	}
 
 	componentDidMount() {
 		console.log("inside componentDidMount make Api call to get info");
 		// API.getFireBaseUser(firebase.auth().currentUser.uid).then(data =>)
+	}
+
+	onChange = (text) => {
+		this.setState({ text: text });
+	}
+
+	enableEditing = ()=> {
+		this.setState({ editing: true });
 	}
 
 	render() {
@@ -65,8 +76,13 @@ export default class Home extends Component {
 				<Row>	
 					<div className="col m6 " >
 						<Row className="center-align">					
-							<UserBio pic={this.state.user_pic} bio={this.state.user_bio}/>
-							<EditUserBio pic={this.state.user_pic} bio={this.state.user_bio}/>
+							<UserBio ContentEditable
+								pic={this.state.user_pic} 
+								bio={this.state.user_bio}
+								onChange={this.onChange}
+								text={this.state.text}
+								editing={this.state.editing}/>
+							<button onClick={this.enableEditing}>Push</button>
 						</Row>
 						<Row>
 							<div>
