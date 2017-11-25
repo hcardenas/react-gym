@@ -1,74 +1,65 @@
 import React, { Component } from 'react';
-import {Row} from 'react-materialize';
-const ContentEditable = require('react-wysiwyg');
 
 
-export default class EditUserBio extends Component {
-	State = {
-		editing: false,
-		section: "",
-		input: ""
+
+export default class UserBio extends Component {
+	state = {
+		bio: ""
 	};
 
-	onCLick = ()=> {
-		if (this.state.editing) {
-			return(<div className="input-field"><textarea id="textarea1" className="materialize-textarea"></textarea></div>);
-		}
+	componentDidMount() {
+		this.setState({
+			bio: this.props.bio
+		});
+
+	}
+
+	handleInputChange = event=> {
+		let value = event.target.value
 
 		this.setState({
-			editing: true
+			bio: value
 		});
 	}
 
-	handleInputChange = event => {
-		let value = event.target.value;
-		const name = event.target.name;
-
-		this.setState({
-			[name]:value
-		});
-	};
-
-	handleFormSubmit = event => {
+	handleFormSubmit = event=> {
 		event.preventDefault();
 
 		this.setState({
-			editing: false,
-			section: "",
-			input: ""
+			bio: ""
 		});
-	}
-
+	};
 
 	render() {
 		return (
-				<Row>
-					<div className="col s1 offset-11">
-						<div className="fixed-action-btn">
-							<a className="btn-floating btn-large red">
-								<i className="large material-icons">mode_edit</i>
-							</a>
-							<ul>
-							    <li>
-							    	<a className="btn-floating red">
-							    		<i className="material-icons">account_circle</i>
-							    	</a>
-							    </li>
-      							<li>
-      								<a className="btn-floating yellow darken-1">
-      									<i className="material-icons">assessment</i>
-      								</a>
-      							</li>
-      							<li>
-      								<a className="btn-floating green">
-      									<i className="material-icons">videocam</i>
-      								</a>
-      							</li>
-							</ul>
-						</div>
-					</div>
-				</Row>
-			)
+			<div className="col m12">
+		        <div className="card-panel grey lighten-5 z-depth-3">
+		          <div className="row valign-wrapper">
+		            <div className="col m5">
+		              <img src={this.props.pic} alt="" className="circle responsive-img" /> 
+
+		            </div>
+		            <form className="col m7">
+		            	<div classname="row">
+		            		<div className="input-field col s12">
+		            			<textarea 
+		            			id="textarea1" 
+		            			className="materialize-textarea">
+		            			<input
+		            			value={this.state.bio}
+		            			name="bio"
+		            			onChange={this.handleInputChange}
+		            			palceholder="Fill in your bio!"
+		            			type="text"/>
+		            			</textarea>
+		            		</div>
+		            	</div>
+
+		            </form>
+		          </div>
+		        </div>
+		    </div>
+		);
 	}
 }
 

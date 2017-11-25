@@ -5,7 +5,8 @@ import UserVid from '../../components/UserVid';
 import UserStats from '../../components/UserStats';
 import API from '../../utils/API';
 import EditUserBio from '../../components/EditUserBio';
-import ContentEditable from 'react-wysiwyg';
+import EditUserStats from '../../components/EditUserStats';
+import EditUserVid from '../../components/EditUserVid'
 
 
 export default class Home extends Component {
@@ -76,21 +77,21 @@ export default class Home extends Component {
 				<Row>	
 					<div className="col m6 " >
 						<Row className="center-align">					
-							<UserBio ContentEditable
+							<EditUserBio ContentEditable
 								pic={this.state.user_pic} 
 								bio={this.state.user_bio}/>
 							
 						</Row>
 						<Row>
 							<div>
-								<UserStats user_stats={this.state.user_stats}/>
+								<EditUserStats user_stats={this.state.user_stats}/>
 							</div>
 						</Row>
 
 					</div>				
 					<div className="col m6 center-align">
 						<Row>
-							<UserVid sessions={this.state.sessions}/>
+							<EditUserVid sessions={this.state.sessions}/>
 						</Row>
 					</div>
 				</Row>
@@ -102,7 +103,7 @@ export default class Home extends Component {
 							</a>
 							<ul>
 							    <li>
-							    	<a href="/edit" className="btn-floating red">
+							    	<a className="btn-floating red">
 							    		<i className="material-icons">account_circle</i>
 							    	</a>
 							    </li>
