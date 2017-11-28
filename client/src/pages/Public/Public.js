@@ -8,7 +8,7 @@ import openSocket from 'socket.io-client';
 
 export default class Public extends Component {
 	state = {
-		sessions : []
+		sessions : [],
 		socket: openSocket(`http://localhost:${process.env.PORT || 3001}`),
 	};
 

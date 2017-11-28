@@ -7,7 +7,7 @@ import API from '../../utils/API';
 import EditUserBio from '../../components/EditUserBio';
 import EditUserStats from '../../components/EditUserStats';
 import EditUserVid from '../../components/EditUserVid'
-
+import * as firebase from 'firebase';
 
 export default class Home extends Component {
 
@@ -55,12 +55,18 @@ export default class Home extends Component {
 			issabelle: "7:00"
 		},
 		text: "",
-		editing: false
+		editing: false,
+		user: {},
+		stats: {},
+		sessions: []
 	}
 
 	componentDidMount() {
 		console.log("inside componentDidMount make Api call to get info");
 		// API.getFireBaseUser(firebase.auth().currentUser.uid).then(data =>)
+		console.log("inside componentDidMount make Api call to get info");
+		API.getFireBaseUser(firebase.auth().currentUser.uid)
+		.then(data => {this.setState({user: data.data, stats: data.data.benchmark, sessions: data.data.sessions}); });
 	}
 
 	onChange = (text) => {
@@ -78,13 +84,14 @@ export default class Home extends Component {
 					<div className="col m6 " >
 						<Row className="center-align">					
 							<EditUserBio ContentEditable
-								pic={this.state.user_pic} 
-								bio={this.state.user_bio}/>
+								pic={this.state.user.profile_pic} 
+								bio={this.state.user.bio}
+								id={this.state.user._id}/>
 							
 						</Row>
 						<Row>
 							<div>
-								<EditUserStats user_stats={this.state.user_stats}/>
+								<EditUserStats user_stats={this.state.stats}/>
 							</div>
 						</Row>
 

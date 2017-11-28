@@ -42,7 +42,7 @@ export default class UserStats extends Component {
 
 		console.log("props.benchmark (outside) = " + this.props.benchmark);
 		let arr =[];
-		let obj = this.state.stats;
+		let obj = this.formatBenchmark(this.state.stats);
 		console.log('Inside of User Stats ' + JSON.stringify(obj));
 		for (let i in obj) {
 			arr.push(

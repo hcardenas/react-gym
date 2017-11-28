@@ -57,7 +57,7 @@ export default class Home extends Component {
 			issabelle: "7:00"
 		},
 		text: "",
-		editing: false
+		editing: false,
 
 		user: {},
 		stats: {},
