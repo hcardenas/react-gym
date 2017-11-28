@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 
-
 export default class UserVid extends Component {
 
 	render() {
@@ -21,7 +20,7 @@ export default class UserVid extends Component {
 								  <div className= "video-container">
 							         <iframe width = "300" height = "200"
 							         	title={element.title}
-							            src = {element.urlVideo}
+							            src = {element.url_video}
 							            frameBorder = "0" allowFullScreen></iframe>
 							      </div>
       						</div>
