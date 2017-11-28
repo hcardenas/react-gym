@@ -14,7 +14,7 @@ module.exports = {
     db.User
       .findById(req.params.id)
       .populate("sessions")
-      .populate("benchmarks")
+      .populate("benchmark")
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
@@ -23,7 +23,7 @@ module.exports = {
     db.User
       .findOne({'firebase_id': req.params.id})
       .populate("sessions")
-      .populate("benchmarks")
+      .populate("benchmark")
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
