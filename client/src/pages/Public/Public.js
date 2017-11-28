@@ -8,8 +8,8 @@ import openSocket from 'socket.io-client';
 
 export default class Public extends Component {
 	state = {
-		sessions : []
-		socket: openSocket(`http://localhost:${process.env.PORT || 3001}`),
+		sessions : [],
+		socket: openSocket(`http://localhost:${process.env.PORT || 3001}`)
 	};
 
 	componentDidMount = () => {
