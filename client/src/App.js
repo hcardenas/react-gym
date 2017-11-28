@@ -4,6 +4,7 @@ import NoMatch from "./pages/NoMatch";
 import Home from "./pages/Home";
 import LogIn from "./pages/LogIn";
 import Public from "./pages/Public";
+import EditPage from "./pages/EditPage";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import {Container} from "react-materialize";
@@ -63,6 +64,7 @@ export default class App extends Component {
                               <Route exact path="/" component={Home} />
                               <Route exact path="/home" component={Home} />
                               <Route exact path="/public" component={Public} />
+                              <Route exact path="/edit" component={EditPage}/>
                               <Route component={NoMatch} />
                             </Switch>
                           </div>

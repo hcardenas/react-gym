@@ -5,15 +5,13 @@ import UserVid from '../../components/UserVid';
 import UserStats from '../../components/UserStats';
 import API from '../../utils/API';
 import EditUserBio from '../../components/EditUserBio';
-import ContentEditable from 'react-wysiwyg';
-
-import * as firebase from 'firebase';
+import EditUserStats from '../../components/EditUserStats';
+import EditUserVid from '../../components/EditUserVid'
 
 
 export default class Home extends Component {
 
 	state = {
-
 		user_id: "",
 		user_bio: "This is a square image. Add the 'circle' className to it to make it appear circular.",
 		user_pic: "http://via.placeholder.com/550x550",
@@ -58,17 +56,11 @@ export default class Home extends Component {
 		},
 		text: "",
 		editing: false
-
-		user: {},
-		stats: {},
-		sessions: []
-
 	}
 
 	componentDidMount() {
 		console.log("inside componentDidMount make Api call to get info");
-		API.getFireBaseUser(firebase.auth().currentUser.uid)
-		.then(data => {this.setState({user: data.data, stats: data.data.benchmark, sessions: data.data.sessions}); console.log("query = " + JSON.stringify(this.state.user))});
+		// API.getFireBaseUser(firebase.auth().currentUser.uid).then(data =>)
 	}
 
 	onChange = (text) => {
@@ -85,19 +77,21 @@ export default class Home extends Component {
 				<Row>	
 					<div className="col m6 " >
 						<Row className="center-align">					
-
-							<UserBio pic={this.state.user.profile_pic} bio={this.state.user.bio}/>	
+							<EditUserBio ContentEditable
+								pic={this.state.user_pic} 
+								bio={this.state.user_bio}/>
+							
 						</Row>
 						<Row>
 							<div>
-								<UserStats benchmark={this.state.stats}/>
+								<EditUserStats user_stats={this.state.user_stats}/>
 							</div>
 						</Row>
 
 					</div>				
 					<div className="col m6 center-align">
 						<Row>
-							<UserVid sessions={this.state.sessions}/>
+							<EditUserVid sessions={this.state.sessions}/>
 						</Row>
 					</div>
 				</Row>
@@ -109,7 +103,7 @@ export default class Home extends Component {
 							</a>
 							<ul>
 							    <li>
-							    	<a href="/edit" className="btn-floating red">
+							    	<a className="btn-floating red">
 							    		<i className="material-icons">account_circle</i>
 							    	</a>
 							    </li>
