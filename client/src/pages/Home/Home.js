@@ -65,7 +65,7 @@ export default class Home extends Component {
 				<Row>
 					<div className="col s1 offset-11">
 						<div className="fixed-action-btn">
-							<a className="btn-floating btn-large red">
+							<a href="/edit" className="btn-floating btn-large red">
 								<i className="large material-icons">mode_edit</i>
 							</a>
 							<ul>
