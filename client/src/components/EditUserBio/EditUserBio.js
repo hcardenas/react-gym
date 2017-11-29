@@ -42,7 +42,7 @@ export default class EditUserBio extends Component {
 
 	onImageDrop(files) {
 		this.setState({
-			uploadedFileCloudinaryUrl: files[0]
+			uploadedFile: files[0]
 		});
 
 		this.handleImageUpload(files[0]);
