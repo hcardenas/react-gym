@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 import {Navbar, NavItem, Icon, Dropdown} from 'react-materialize';
 import * as firebase from 'firebase';
 

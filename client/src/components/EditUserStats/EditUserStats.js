@@ -1,17 +1,26 @@
 import React, { Component } from 'react';
-import * as firebase from 'firebase';
+import API from '../../utils/API';
 
 
 export default class UserStats extends Component {
 	state = {
-		stats : {}
+		stats : {},
+		issabelle: "",
+		Tenk_run: "",
+		Fivek_run: "",
+		Threek_run: "",
+		mile_run: "",
+		cindy: "",
+		fran: "",
+		deadlift: "",
+		shoulder_press: "",
+		bench: "",
+		squat: ""
 	};
 	componentDidMount() {
 		this.setState({
 			stats: this.props.user_stats 
 		});
-
-		console.log(firebase.auth().currentUser);
 
 	}
 
@@ -24,18 +33,35 @@ export default class UserStats extends Component {
 		});
 	}
 
-	handleFormSubmit = event=> {
-		event.preventDefault();
+	handleFormSubmit = (name, value)=> {
+		API.updateBenchmark({[name]: value}, this.props.user_stats._id)
+		.then(dbBenchmark => {
+			console.log("dbBenchmark = ");
+			console.log(dbBenchmark);
+		})
 
-		this.setState({
-			stats: {}
-		});
 	};
 
-	render() {
+	formatBenchmark = () => {
+    	var benchmarkObj = {
+    		"Issabelle": "issabelle",
+    		"10k Run": "Tenk_run",
+    		"5k Run": "Fivek_run",
+    		"3k Run": "Threek_run",
+    		"Mile Run": "mile_run",
+    		"Cindy": "cindy",
+    		"Fran": "fran",
+    		"Deadlift": "deadlift",
+    		"Shoulder Press": "shoulder_press",
+    		"Bench": "bench",
+    		"Squat": "squat"
+    	};
+    	return benchmarkObj;
+  	};
 
+	render() {
 		let arr =[];
-		let obj = this.state.stats;
+		let obj = this.formatBenchmark();
 		for (let i in obj) {
 			arr.push(
 				<li key={i} className="collection-item avatar">
@@ -43,13 +69,17 @@ export default class UserStats extends Component {
 					<span className="title">{i}</span>
 					<div className="row">
 						<div className="col s6 input-field">
-							<input 
-							type="number" 
+							<input  
 							className="validate"
-							value={this.state.stats}
-							name="stats"
+							value={this.state[obj[i]]}
+							name={obj[i]}
 							onChange={this.handleInputChange}
 							placeholder="Enter your stats"/>
+							<a onClick={() => this.handleFormSubmit(obj[i], this.state[obj[i]])} 
+							className="waves-effect waves-light btn"
+							>
+			            		Save
+			            	</a>
 
 						</div>
 					</div>
