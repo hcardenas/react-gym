@@ -19,7 +19,8 @@ import * as firebase from 'firebase';
 export default class App extends Component {
   
   state = {
-    userLoggedin : false
+    userLoggedin : false,
+    user: {}
   };
 
   componentDidMount = () => {
@@ -32,7 +33,8 @@ export default class App extends Component {
         flag = true;
 
       this.setState({
-          userLoggedin: flag
+          userLoggedin: flag,
+          user: user
         });
     });
 
@@ -53,7 +55,7 @@ export default class App extends Component {
               <Router>     
                 <MuiThemeProvider >
                 <Container>
-                  <Navbar isUserlogged={this.state.userLoggedin} signOutUser={this.signOutUser} />
+                  <Navbar isUserlogged={this.state.userLoggedin} signOutUser={this.signOutUser} user={this.state.user} />
                   <br />
                   
                   { 
