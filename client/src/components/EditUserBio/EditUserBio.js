@@ -53,15 +53,18 @@ export default class UserBio extends Component {
 		            <form className="col m7">
 		            	<div className="row">
 		            		<div className="input-field col s12">
-		            			<textarea 
-		            			id="textarea1" 
-		            			className="materialize-textarea"
-		            			value={this.state.bio}
-		            			name="bio"
-		            			onChange={this.handleInputChange}
-		            			placeholder={this.props.bio}
-		            			>
-		            			</textarea>
+			            			<textarea 
+			            			id="textarea1" 
+			            			className="materialize-textarea"
+			            			value={this.state.bio}
+			            			name="bio"
+			            			onChange={this.handleInputChange}
+			            			placeholder={this.props.bio}
+			            			>
+			            			</textarea>
+			            			<a onClick={this.handleFormSubmit} className="waves-effect waves-light btn">
+			            				Save
+			            			</a>
 		            		</div>
 		            	</div>
 

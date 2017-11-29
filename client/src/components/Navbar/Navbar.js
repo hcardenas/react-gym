@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import {Icon} from 'react-materialize';
-import * as firebase from 'firebase';
 
 export default class Nav extends Component {
 	

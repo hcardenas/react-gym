@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import * as firebase from 'firebase';
+import API from '../../utils/API';
 
 
 export default class UserStats extends Component {
@@ -33,16 +33,16 @@ export default class UserStats extends Component {
 		});
 	}
 
-	handleFormSubmit = event=> {
-		event.preventDefault();
+	handleFormSubmit = (name, value)=> {
+		API.updateBenchmark({[name]: value}, this.props.user_stats._id)
+		.then(dbBenchmark => {
+			console.log("dbBenchmark = ");
+			console.log(dbBenchmark);
+		})
 
-		this.setState({
-			stats: {}
-		});
 	};
 
 	formatBenchmark = () => {
-		let obj = this.props.user_stats;
     	var benchmarkObj = {
     		"Issabelle": "issabelle",
     		"10k Run": "Tenk_run",
@@ -60,8 +60,6 @@ export default class UserStats extends Component {
   	};
 
 	render() {
-		console.log(`userstats render`);
-		console.log(this.state.stats);
 		let arr =[];
 		let obj = this.formatBenchmark();
 		for (let i in obj) {
@@ -77,6 +75,11 @@ export default class UserStats extends Component {
 							name={obj[i]}
 							onChange={this.handleInputChange}
 							placeholder="Enter your stats"/>
+							<a onClick={() => this.handleFormSubmit(obj[i], this.state[obj[i]])} 
+							className="waves-effect waves-light btn"
+							>
+			            		Save
+			            	</a>
 
 						</div>
 					</div>

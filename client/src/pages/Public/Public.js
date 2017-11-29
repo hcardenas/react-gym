@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Chat from '../../components/Chat';
-import {Row, Collapsible} from 'react-materialize';
+import {Row} from 'react-materialize';
 import PublicUserVid from '../../components/PublicUserVid';
 import API from '../../utils/API';
 import openSocket from 'socket.io-client';

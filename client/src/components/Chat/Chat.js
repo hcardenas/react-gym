@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import ChatList from '../ChatList';
 import openSocket from 'socket.io-client';
 import * as firebase from 'firebase'
-import {Row} from 'react-materialize';
 import ReactDOM from 'react-dom';
 import './Chat.css';
 
