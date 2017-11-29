@@ -1,0 +1,20 @@
+.Chat {
+	min-height: 450px;
+	height: auto;
+
+	position:relative;
+    
+}
+
+#chatPanel {
+	overflow-y: scroll;
+	max-height: 340px;
+}
+
+#inputChat {
+	position:absolute;
+	bottom:0;
+	
+	left: 50%;
+    margin: 0 0 0 -100px;
+}

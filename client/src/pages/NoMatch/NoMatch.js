@@ -1,5 +1,5 @@
 import React from "react";
-import {Container} from "react-materialize";
+import {Container} from 'react-materialize';
 
 const NoMatch = () =>
 		<div>
@@ -10,7 +10,7 @@ const NoMatch = () =>
               🙄
             </span>
           </h1>
-         </Container>
+    </Container>
           </div>;
 
 export default NoMatch;
