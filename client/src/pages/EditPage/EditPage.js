@@ -21,7 +21,14 @@ export default class Home extends Component {
 		// API.getFireBaseUser(firebase.auth().currentUser.uid).then(data =>)
 		console.log("inside componentDidMount make Api call to get info");
 		API.getFireBaseUser(firebase.auth().currentUser.uid)
-		.then(data => {this.setState({user: data.data, stats: data.data.benchmark, sessions: data.data.sessions}); });
+		.then(data => {
+			this.setState({
+				user: data.data, 
+				stats: data.data.benchmark, 
+				sessions: data.data.sessions
+			}); 
+		});
+
 	}
 
 	onChange = (text) => {

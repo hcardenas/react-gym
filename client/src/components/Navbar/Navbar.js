@@ -14,7 +14,7 @@ export default class Nav extends Component {
 			<Navbar brand='logo' right>
 				<NavItem href='/'><Icon left>home</Icon>Home</NavItem>
 				<NavItem href='/public'><Icon left>public</Icon>Public</NavItem>
-				<Dropdown trigger={<NavItem><Icon left>person</Icon>{firebase.auth().currentUser.displayName}</NavItem>}>
+				<Dropdown trigger={<NavItem><Icon left>person</Icon>soemthing</NavItem>}>
 					<NavItem>Username</NavItem>
 					{(this.props.isUserlogged === false ? "" : <NavItem href='/' onClick={ () => {this.props.signOutUser()} }>Logout</NavItem>)}
 				</Dropdown>
