@@ -15,6 +15,7 @@ export default class Nav extends Component {
 				<NavItem href='/public'><Icon left>public</Icon>Public</NavItem>
 
 				<Dropdown trigger={<NavItem><Icon left>person</Icon>{(this.props.isUserlogged === false ? "" : this.props.user.displayName)} </NavItem>}>
+
 					<NavItem>Username</NavItem>
 					{(this.props.isUserlogged === false ? "" : <NavItem href='/' onClick={ () => {this.props.signOutUser()} }>Logout</NavItem>)}
 				</Dropdown>
