@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Row} from 'react-materialize';
+import {Row, lock, lock_open} from 'react-materialize';
 import API from '../../utils/API';
 import EditUserBio from '../../components/EditUserBio';
 import EditUserStats from '../../components/EditUserStats';
@@ -10,7 +10,7 @@ export default class Home extends Component {
 
 	state = {
 		text: "",
-		editing: false,
+		editing: true,
 		user: {},
 		stats: {},
 		sessions: []
@@ -69,26 +69,9 @@ export default class Home extends Component {
 				<Row>
 					<div className="col s1 offset-11">
 						<div className="fixed-action-btn">
-							<a className="btn-floating btn-large red">
-								<i className="large material-icons">mode_edit</i>
+							<a href={this.state.editing ? '/home' : '/edit'} className="btn-floating btn-large red"> 
+								<i className="large material-icons">{(this.state.editing ? "lock_open" : "lock")}</i>
 							</a>
-							<ul>
-							    <li>
-							    	<a className="btn-floating red">
-							    		<i className="material-icons">account_circle</i>
-							    	</a>
-							    </li>
-      							<li>
-      								<a className="btn-floating yellow darken-1">
-      									<i className="material-icons">assessment</i>
-      								</a>
-      							</li>
-      							<li>
-      								<a className="btn-floating green">
-      									<i className="material-icons">videocam</i>
-      								</a>
-      							</li>
-							</ul>
 						</div>
 					</div>
 				</Row>
