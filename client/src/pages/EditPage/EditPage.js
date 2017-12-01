@@ -62,7 +62,10 @@ export default class Home extends Component {
 					</div>				
 					<div className="col m6 center-align">
 						<Row>
-							<EditUserVid sessions={this.state.sessions}/>
+							<EditUserVid 
+								sessions={this.state.sessions} 
+								user_id={this.state.user._id}
+							/>
 						</Row>
 					</div>
 				</Row>

@@ -6,18 +6,7 @@ import {Row, Input} from 'react-materialize';
 export default class EditUserSessions extends Component {
 
 	state = {
-		sessions : [{
-			title: "fran",
-			date: "00-00-0000",
-			url_video: "www.youtube.com/embed/GXJn6_nHB1E",
-			score: "2:31"
-		},
-		{
-			title: "fran",
-			date: "00-00-0000",
-			url_video: "www.youtube.com/embed/GXJn6_nHB1E",
-			score: "2:31"
-		}]
+		sessions : this.props.sessions
 	};
 
 	componentDidMount() {
@@ -31,7 +20,6 @@ export default class EditUserSessions extends Component {
 
 		let value = event.target.value;
 		const name = event.target.name;
-		console.log(`index: ${index} value: ${value} name: ${name}`);
 		let arr = this.state.sessions;
 		arr[index][name] = value; 
 		this.setState({
@@ -39,14 +27,21 @@ export default class EditUserSessions extends Component {
 		});
 	};
 
-	handleFormSubmit = ()=> {
-		console.log("handleFormSubmit on EditUserSessions needs to call API");
-		alert (`sessions updated ${JSON.stringify(this.state)}`);
-		// API.updateBenchmark({[name]: value}, this.props.user_stats._id)
-		// .then(dbBenchmark => {
-		// 	console.log("dbBenchmark = ");
-		// 	console.log(dbBenchmark);
-		// })
+	handleFormSubmit = (data, id)=> {
+		API.updateSession(data, id)
+		.then(dbSession => {
+			console.log("dbSession = ");
+			console.log(dbSession);
+		})
+
+	};
+
+	handleFormDelete = (id)=> {
+		API.deleteSession(id)
+		.then(dbSession => {
+			console.log("dbSession = ");
+			console.log(dbSession);
+		})
 
 	};
 
@@ -85,9 +80,22 @@ export default class EditUserSessions extends Component {
 							</Row>
 							<Row>
 								<a className="waves-effect waves-light btn" 
-									onClick={this.handleFormSubmit}
+									onClick={() => this.handleFormSubmit(
+										{
+											url_video: element.url_video,
+											date: element.date,
+											title: element.title,
+											score: element.score
+										},
+										element._id
+										)}
 								>
 									Edit Session
+								</a>
+								<a className="waves-effect waves-light btn" 
+									onClick={() => this.handleFormDelete(element._id)}
+								>
+									Delete Session
 								</a>
 							</Row>
 			         
