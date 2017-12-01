@@ -4,8 +4,13 @@ import {ToastContainer, toast} from 'react-toastify';
 import {css} from 'glamor';
 
 export default class Toast extends Component {
+	state = {
+		alert_message: ""
+	}
+
+
 	notify = ()=> {
-		toast("Alert", {
+		toast( this.state.alert_message, {
 			position: toast.POSITION.TOP_CENTER
 		});
 
@@ -15,7 +20,11 @@ export default class Toast extends Component {
 		return (
 			<div>
 				<button onClick={this.notify}>Notify!</button>
-					<ToastContainer/>
+					<ToastContainer
+					type= 'error'
+					hideProgressBar={true}
+					autoClose={5000}
+					/>
 			</div>
 			);
 	}
