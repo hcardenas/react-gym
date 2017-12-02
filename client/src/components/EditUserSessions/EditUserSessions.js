@@ -97,6 +97,7 @@ export default class EditUserSessions extends Component {
 								/>
 							</Row>
 							<Row>
+								<div className="col m6">
 								<a className="waves-effect waves-light btn" 
 									onClick={() => this.handleFormSubmit(
 										{
@@ -108,13 +109,16 @@ export default class EditUserSessions extends Component {
 										element._id, i
 										)}
 								>
-									Edit Session
+									Edit 
 								</a>
+								</div>
+								<div className="col m6">
 								<a className="waves-effect waves-light btn" 
 									onClick={() => this.handleFormDelete(element._id)}
 								>
-									Delete Session
+									Delete 
 								</a>
+								</div>
 							</Row>
 			         
 			      		</div>
