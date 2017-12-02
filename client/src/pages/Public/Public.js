@@ -27,12 +27,30 @@ export default class Public extends Component {
 			});
 			
 		});
+
 		this.state.socket.on('del-session', (msg) => {
 			console.log(`client recieved del session:`);
 			console.log(`${JSON.stringify(msg)}`);
 			console.log('-----------------');
 			
 			let newSession = this.state.sessions.filter(elements => !(elements._id === msg));
+			this.setState({sessions: newSession});
+
+		});
+
+		this.state.socket.on('ed-session', (msg) => {
+			console.log(`client recieved ed-session:`);
+			console.log(`${JSON.stringify(msg)}`);
+			console.log('-----------------');
+			
+			let newSession = this.state.sessions;
+			for (let i in newSession) {
+				if (newSession[i]._id === msg._id) {
+					console.log(`found ${newSession[i]}`);
+					newSession[i] = msg;
+					break;
+				}
+			}
 			this.setState({sessions: newSession});
 
 		});

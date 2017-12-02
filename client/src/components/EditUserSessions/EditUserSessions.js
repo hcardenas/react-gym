@@ -40,6 +40,10 @@ export default class EditUserSessions extends Component {
 			this.setState({
 				sessions: newArr
 			});
+
+			let socketData = data;
+			socketData._id = dbSession.data._id
+			this.state.socket.emit('edit-session',  socketData);
 		})
 
 	};

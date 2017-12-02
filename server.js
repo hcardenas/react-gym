@@ -59,4 +59,8 @@ io.on('connection', function(socket) {
 		console.log(`server recieved delete-session`);
 		io.emit('del-session', id);
 	});
+	socket.on('edit-session', function(obj) {
+		console.log(`server recieved edit-session ${JSON.stringify(obj)}`);
+		io.emit('ed-session', obj);
+	});
 });
