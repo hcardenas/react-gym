@@ -20,6 +20,7 @@ export default class App extends Component {
   
   state = {
     userLoggedin : false,
+    benchMarkCreated: false,
     user: {}
   };
 
@@ -38,6 +39,12 @@ export default class App extends Component {
         });
     });
 
+  };
+
+  benchMarkCreated = () => {
+    this.setState({
+      benchMarkCreated: true
+    });
   };
 
 
@@ -59,7 +66,7 @@ export default class App extends Component {
                   <br />
                   
                   { 
-                    (this.state.userLoggedin === true)  ? 
+                    (this.state.userLoggedin === true && this.state.benchMarkCreated === true)  ? 
                         (  
                           <div>
                             <Switch>
@@ -73,7 +80,7 @@ export default class App extends Component {
                         ) 
                         :<div>
                           <Switch>
-                            <Route component={LogIn} /> 
+                            <Route render={()=> <LogIn benchMarkCreated={this.benchMarkCreated} />}  /> 
                           </Switch>
                         </div>         
                   }

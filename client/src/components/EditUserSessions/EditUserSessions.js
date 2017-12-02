@@ -9,8 +9,9 @@ export default class EditUserSessions extends Component {
 		sessions : this.props.sessions
 	};
 
-	componentDidMount() {
+	componentDidMount = ()=> {
 		console.log("we need to set state sessions here at EditUserSessions Component");
+		
 		// this.setState({
 		// 	stats: this.props.sessions 
 		// });
@@ -27,11 +28,16 @@ export default class EditUserSessions extends Component {
 		});
 	};
 
-	handleFormSubmit = (data, id)=> {
+	handleFormSubmit = (data, id, index)=> {
 		API.updateSession(data, id)
 		.then(dbSession => {
 			console.log("dbSession = ");
 			console.log(dbSession);
+			let newArr = this.state.sessions
+			newArr[index] = dbSession.data;
+			this.setState({
+				sessions: newArr
+			});
 		})
 
 	};
@@ -41,6 +47,10 @@ export default class EditUserSessions extends Component {
 		.then(dbSession => {
 			console.log("dbSession = ");
 			console.log(dbSession);
+			let newArr = this.state.sessions.filter(item => !(item._id === dbSession.data._id))
+			this.setState({
+				sessions: newArr
+			});
 		})
 
 	};
@@ -87,7 +97,7 @@ export default class EditUserSessions extends Component {
 											title: element.title,
 											score: element.score
 										},
-										element._id
+										element._id, i
 										)}
 								>
 									Edit Session
