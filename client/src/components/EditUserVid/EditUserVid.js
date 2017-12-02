@@ -9,13 +9,11 @@ export default class EditUserVid extends Component {
 
 
 	state = {
-		sessions: []
+		sessions: this.props.sessions
 	};
 
 	componentDidMount = () => {
-		this.setState({
-			sessions: this.props.sessions
-		});
+		this.updateSessions();
 	};
 
 	updateSessions = () => {
