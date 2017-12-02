@@ -1,1 +1,1 @@
-export { default } from './UserVid';
+export { default } from './EditUserVid';

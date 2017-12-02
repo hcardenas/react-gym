@@ -18,7 +18,10 @@ module.exports = {
     db.Session
       .findOneAndUpdate({ _id: req.params.id }, req.body)
       .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
+      .catch(err => {
+        console.log(req.params);
+        res.status(422).json(err);
+      });
   },
   remove: function(req, res) {
     db.Session
