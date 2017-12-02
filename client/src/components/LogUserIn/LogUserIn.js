@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Row, Input} from 'react-materialize';
 import * as firebase from 'firebase';
+import {Toast, notify} from '../../components/Toast';
 
 
 export default class LogUserIn extends Component {
@@ -25,7 +26,9 @@ export default class LogUserIn extends Component {
 
     const promise = auth.signInWithEmailAndPassword(this.state.email, this.state.password);
   
-    promise.catch(e => console.log(e));
+    promise.catch(e => {
+      console.log(e)
+    });
   };
 
   render() {
@@ -49,7 +52,9 @@ export default class LogUserIn extends Component {
             name="password"
           />
 
-          <a className="waves-effect waves-light btn" onClick={this.firebaseLogin}>Log In</a>
+          <a 
+            className="waves-effect waves-light btn" 
+            onClick={this.firebaseLogin}>Log In</a>
         </Row>
       </div>
       );
