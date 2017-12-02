@@ -58,6 +58,7 @@ export default class CreateUserSessions extends Component {
 							/>
 							<Input 
 								defaultValue="00-00-0000" 
+								type="date"
 								label="date" s={12}
 								onChange={(event)=>{this.handleInputChange(event)}}
 								name="date"
@@ -79,7 +80,7 @@ export default class CreateUserSessions extends Component {
 							<a className="waves-effect waves-light btn" 
 								onClick={this.handleFormSubmit}
 							>
-								Edit Session
+								Create Session
 							</a>
 						</Row>
 		         
