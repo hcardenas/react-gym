@@ -11,7 +11,7 @@ export default class Nav extends Component {
 
 		return (
 
-			<Navbar brand='logo' right>
+			<Navbar brand='logo' right className="grey darken-1">
 				<NavItem href='/'><Icon left>home</Icon>Home</NavItem>
 				<NavItem href='/public'><Icon left>public</Icon>Public</NavItem>
 
