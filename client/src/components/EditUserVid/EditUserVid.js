@@ -50,11 +50,13 @@ export default class EditUserVid extends Component {
 				<Tabs className='tab-demo z-depth-1 center-align'>
 						<Tab title="Create Sessions" >
 							<br />
-							<CreateUserSessions />
+							<CreateUserSessions
+								user_id={this.props.user_id} 
+							/>
 						</Tab>
 						<Tab title="Edit Sessions">
 							<br />
-							<EditUserSessions sessions={this.state.sessions}/>
+							<EditUserSessions sessions={this.props.sessions}/>
 						</Tab>				
 				</Tabs>
 			</div>

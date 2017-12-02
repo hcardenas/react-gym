@@ -8,7 +8,7 @@ export default class CreateUserSessions extends Component {
 	state = {
 		title: "WOD",
 		date: "00-00-0000",
-		url_video: "www.youtube.com/embed/GXJn6_nHB1E",
+		url_video: "https://www.youtube.com/embed/RGPm3QiA3sI",
 		score: "000"	
 	};
 
@@ -30,11 +30,16 @@ export default class CreateUserSessions extends Component {
 	handleFormSubmit = ()=> {
 		console.log("handleFormSubmit on CreateUserSessions needs to call API");
 		alert (`sessions Created ${JSON.stringify(this.state)}`);
-		// API.updateBenchmark({[name]: value}, this.props.user_stats._id)
-		// .then(dbBenchmark => {
-		// 	console.log("dbBenchmark = ");
-		// 	console.log(dbBenchmark);
-		// })
+		API.createSession({
+			title: this.state.title,
+			date: this.state.date,
+			url_video: this.state.url_video,
+			score: this.state.score
+		}, this.props.user_id)
+		.then(dbSession => {
+			console.log("dbSession = ");
+			console.log(dbSession);
+		});
 
 	};
 
@@ -64,7 +69,7 @@ export default class CreateUserSessions extends Component {
 								name="score"
 							/>
 							<Input 
-								defaultValue="www.youtube.com/embed/GXJn6_nHB1E"
+								defaultValue="https://www.youtube.com/embed/RGPm3QiA3sI"
 								label="url" s={12}
 								onChange={(event)=>{this.handleInputChange(event)}}
 								name="url_video"
