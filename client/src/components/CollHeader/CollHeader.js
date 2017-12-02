@@ -17,7 +17,7 @@ export default class CollHeader extends Component {
 						</Tab>
 						<Tab title="Sign Up">
 							<br />
-							<SignUpUser />
+							<SignUpUser benchMarkCreated={this.props.benchMarkCreated}/>
 						</Tab>
 						
 				</Tabs>
