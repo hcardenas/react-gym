@@ -66,11 +66,11 @@ export default class App extends Component {
                   <br />
                   
                   { 
-                    (this.state.userLoggedin === true && this.state.benchMarkCreated === true)  ? 
+                    (this.state.userLoggedin === true)  ? 
                         (  
                           <div>
                             <Switch>
-                              <Route exact path="/" component={Home} />
+                              <Route exact path="/" component={Public} />
                               <Route exact path="/home" component={Home} />
                               <Route exact path="/public" component={Public} />
                               <Route exact path="/edit" component={EditPage}/>
