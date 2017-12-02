@@ -21,17 +21,20 @@ export default class Public extends Component {
 			console.log('-----------------');
 			
 			let newSession = this.state.sessions;
-			newSession.push({
-				urlVideo : "https://www.youtube.com/embed/RGPm3QiA3sI",
-				date: "07102017",
-				title: "Fran4",
-				score: "1:54"
-			});
-			
+			newSession.push(msg);
 			this.setState({
-				messages : newSession
+				sessions : newSession
 			});
 			
+		});
+		this.state.socket.on('del-session', (msg) => {
+			console.log(`client recieved del session:`);
+			console.log(`${JSON.stringify(msg)}`);
+			console.log('-----------------');
+			
+			let newSession = this.state.sessions.filter(elements => !(elements._id === msg));
+			this.setState({sessions: newSession});
+
 		});
 	};
 

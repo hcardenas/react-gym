@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import API from '../../utils/API';
 import {Row, Input} from 'react-materialize';
+import openSocket from 'socket.io-client';
 
 
 export default class EditUserSessions extends Component {
 
 	state = {
-		sessions : this.props.sessions
+		sessions : this.props.sessions,
+		socket: openSocket(`http://localhost:${process.env.PORT || 3001}`)
 	};
 
 	componentDidMount = ()=> {
@@ -51,6 +53,7 @@ export default class EditUserSessions extends Component {
 			this.setState({
 				sessions: newArr
 			});
+			this.state.socket.emit('delete-session',  dbSession.data._id);
 		})
 
 	};

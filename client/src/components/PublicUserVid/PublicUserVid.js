@@ -1,7 +1,32 @@
 import React, { Component } from 'react';
 import {Collapsible, CollapsibleItem} from 'react-materialize';
+import openSocket from 'socket.io-client';
+import API from '../../utils/API';
 
 export default class PublicUserVid extends Component {
+
+
+	state = {
+		socket: openSocket(`http://localhost:${process.env.PORT || 3001}`),
+		sessions: this.props.sessions
+	};
+
+	componentDidMount = () => {
+		
+		// this.state.socket.on('send-session', (msg) => {
+		// 	console.log(`client recieved new session:`);
+		// 	console.log(`${JSON.stringify(msg)}`);
+		// 	console.log('-----------------');
+			
+		// 	API.getSessions().then(
+		// 		data => {
+		// 			this.setState({
+		// 				sessions: data.data
+		// 			})
+		// 	});
+		// });
+		
+	};
 
 	render() {
 		return (
