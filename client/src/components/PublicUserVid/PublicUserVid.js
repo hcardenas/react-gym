@@ -11,22 +11,6 @@ export default class PublicUserVid extends Component {
 		sessions: this.props.sessions
 	};
 
-	componentDidMount = () => {
-		
-		// this.state.socket.on('send-session', (msg) => {
-		// 	console.log(`client recieved new session:`);
-		// 	console.log(`${JSON.stringify(msg)}`);
-		// 	console.log('-----------------');
-			
-		// 	API.getSessions().then(
-		// 		data => {
-		// 			this.setState({
-		// 				sessions: data.data
-		// 			})
-		// 	});
-		// });
-		
-	};
 
 	render() {
 		return (

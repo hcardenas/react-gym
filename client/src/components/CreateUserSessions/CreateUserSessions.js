@@ -39,7 +39,7 @@ export default class CreateUserSessions extends Component {
 			console.log(dbSession);
 			this.props.updateSessions();
 			// use this code to create new session
-			this.state.socket.emit('new-session',  newObj);
+			this.state.socket.emit('new-session',  dbSession.data);
 		});
 
 	};

@@ -61,7 +61,7 @@ export default class EditUserSessions extends Component {
 	render() {
 		let arr = this.state.sessions.map(
 			(element, i) => (	 
-				<div className="col m12" key={i}>
+				<div className="col m12" key={element._id}>
 			        <div className="card-panel grey lighten-5 z-depth-3">
 			          <div className="row valign-wrapper">
 			            <div className="col m12">
