@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import API from '../../utils/API';
 import {Row, Input} from 'react-materialize';
+import {ToastContainer, toast} from 'react-toastify';
+import {css} from 'glamor';
 import openSocket from 'socket.io-client';
+
 
 
 export default class CreateUserSessions extends Component {
@@ -26,8 +29,14 @@ export default class CreateUserSessions extends Component {
 	};
 
 	handleFormSubmit = ()=> {
-		//alert (`sessions Created ${JSON.stringify(this.state)}`);
+
+		console.log("handleFormSubmit on CreateUserSessions needs to call API");
+		this.notify("Session Created!");
+
+
+
 		let newObj = {
+
 			title: this.state.title,
 			date: this.state.date,
 			url_video: this.state.url_video,
@@ -43,6 +52,13 @@ export default class CreateUserSessions extends Component {
 		});
 
 	};
+
+	notify = (message)=> {
+		toast( message, {
+			position: toast.POSITION.TOP_CENTER
+		});
+
+	}
 
 	render() {
 		return ( 
@@ -83,6 +99,13 @@ export default class CreateUserSessions extends Component {
 							>
 								Create Session
 							</a>
+						</Row>
+						<Row>
+							<ToastContainer
+							type= 'error'
+							hideProgressBar={false}
+							autoClose={2000}
+							/>
 						</Row>
 		         
 		      		</div>

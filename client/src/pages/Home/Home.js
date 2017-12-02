@@ -3,6 +3,7 @@ import {Row, lock, lock_open} from 'react-materialize';
 import UserBio from '../../components/UserBio';
 import UserVid from '../../components/UserVid';
 import UserStats from '../../components/UserStats';
+import Toast from '../../components/Toast';
 import API from '../../utils/API';
 
 import * as firebase from 'firebase';
@@ -59,6 +60,9 @@ export default class Home extends Component {
 					<div className="col m6 center-align">
 						<Row>
 							<UserVid sessions={this.state.sessions}/>
+						</Row>
+						<Row>
+							<Toast />
 						</Row>
 					</div>
 				</Row>
