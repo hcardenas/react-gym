@@ -1,16 +1,19 @@
 import React, { Component } from 'react';
 import API from '../../utils/API';
 import {Row, Input} from 'react-materialize';
+import openSocket from 'socket.io-client';
 
 
 export default class EditUserSessions extends Component {
 
 	state = {
-		sessions : this.props.sessions
+		sessions : this.props.sessions,
+		socket: openSocket(`http://localhost:${process.env.PORT || 3001}`)
 	};
 
-	componentDidMount() {
+	componentDidMount = ()=> {
 		console.log("we need to set state sessions here at EditUserSessions Component");
+		
 		// this.setState({
 		// 	stats: this.props.sessions 
 		// });
@@ -27,11 +30,20 @@ export default class EditUserSessions extends Component {
 		});
 	};
 
-	handleFormSubmit = (data, id)=> {
+	handleFormSubmit = (data, id, index)=> {
 		API.updateSession(data, id)
 		.then(dbSession => {
 			console.log("dbSession = ");
 			console.log(dbSession);
+			let newArr = this.state.sessions
+			newArr[index] = dbSession.data;
+			this.setState({
+				sessions: newArr
+			});
+
+			let socketData = data;
+			socketData._id = dbSession.data._id
+			this.state.socket.emit('edit-session',  socketData);
 		})
 
 	};
@@ -41,6 +53,11 @@ export default class EditUserSessions extends Component {
 		.then(dbSession => {
 			console.log("dbSession = ");
 			console.log(dbSession);
+			let newArr = this.state.sessions.filter(item => !(item._id === dbSession.data._id))
+			this.setState({
+				sessions: newArr
+			});
+			this.state.socket.emit('delete-session',  dbSession.data._id);
 		})
 
 	};
@@ -48,7 +65,7 @@ export default class EditUserSessions extends Component {
 	render() {
 		let arr = this.state.sessions.map(
 			(element, i) => (	 
-				<div className="col m12" key={i}>
+				<div className="col m12" key={element._id}>
 			        <div className="card-panel grey lighten-5 z-depth-3">
 			          <div className="row valign-wrapper">
 			            <div className="col m12">
@@ -61,6 +78,7 @@ export default class EditUserSessions extends Component {
 								/>
 								<Input 
 									defaultValue={element.date} 
+									type="date"
 									label="date" s={12}
 									onChange={(event)=>{this.handleInputChange(event, i)}}
 									name="date"
@@ -79,6 +97,7 @@ export default class EditUserSessions extends Component {
 								/>
 							</Row>
 							<Row>
+								<div className="col m6">
 								<a className="waves-effect waves-light btn" 
 									onClick={() => this.handleFormSubmit(
 										{
@@ -87,16 +106,19 @@ export default class EditUserSessions extends Component {
 											title: element.title,
 											score: element.score
 										},
-										element._id
+										element._id, i
 										)}
 								>
-									Edit Session
+									Edit 
 								</a>
+								</div>
+								<div className="col m6">
 								<a className="waves-effect waves-light btn" 
 									onClick={() => this.handleFormDelete(element._id)}
 								>
-									Delete Session
+									Delete 
 								</a>
+								</div>
 							</Row>
 			         
 			      		</div>

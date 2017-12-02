@@ -20,6 +20,7 @@ export default class App extends Component {
   
   state = {
     userLoggedin : false,
+    benchMarkCreated: false,
     user: {}
   };
 
@@ -38,6 +39,12 @@ export default class App extends Component {
         });
     });
 
+  };
+
+  benchMarkCreated = () => {
+    this.setState({
+      benchMarkCreated: true
+    });
   };
 
 
@@ -63,7 +70,7 @@ export default class App extends Component {
                         (  
                           <div>
                             <Switch>
-                              <Route exact path="/" component={Home} />
+                              <Route exact path="/" component={Public} />
                               <Route exact path="/home" component={Home} />
                               <Route exact path="/public" component={Public} />
                               <Route exact path="/edit" component={EditPage}/>
@@ -73,7 +80,7 @@ export default class App extends Component {
                         ) 
                         :<div>
                           <Switch>
-                            <Route component={LogIn} /> 
+                            <Route render={()=> <LogIn benchMarkCreated={this.benchMarkCreated} />}  /> 
                           </Switch>
                         </div>         
                   }

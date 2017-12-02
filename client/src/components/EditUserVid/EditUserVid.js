@@ -2,13 +2,30 @@ import React, { Component } from 'react';
 import {Tabs, Tab} from 'react-materialize';
 import EditUserSessions from '../EditUserSessions';
 import CreateUserSessions from '../CreateUserSessions';
+import API from '../../utils/API';
+import * as firebase from 'firebase';
 
 export default class EditUserVid extends Component {
 
 
 	state = {
-		sessions: []
+		sessions: this.props.sessions
 	};
+
+	componentDidMount = () => {
+		this.updateSessions();
+	};
+
+	updateSessions = () => {
+		API.getFireBaseUser(firebase.auth().currentUser.uid)
+		.then(data => {
+			this.setState({ 
+				sessions: data.data.sessions
+			}); 
+		});
+	};
+
+
 
 
 	createUserEdit = () => {
@@ -52,11 +69,12 @@ export default class EditUserVid extends Component {
 							<br />
 							<CreateUserSessions
 								user_id={this.props.user_id} 
+								updateSessions={this.updateSessions}
 							/>
 						</Tab>
 						<Tab title="Edit Sessions">
 							<br />
-							<EditUserSessions sessions={this.props.sessions}/>
+							<EditUserSessions sessions={this.state.sessions}/>
 						</Tab>				
 				</Tabs>
 			</div>
