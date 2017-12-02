@@ -12,10 +12,6 @@ export default class CreateUserSessions extends Component {
 		score: "000"	
 	};
 
-	componentDidMount() {
-		
-	};
-
 	handleInputChange = (event)=> {
 
 		let value = event.target.value;
@@ -28,7 +24,6 @@ export default class CreateUserSessions extends Component {
 	};
 
 	handleFormSubmit = ()=> {
-		console.log("handleFormSubmit on CreateUserSessions needs to call API");
 		alert (`sessions Created ${JSON.stringify(this.state)}`);
 		API.createSession({
 			title: this.state.title,
@@ -39,6 +34,7 @@ export default class CreateUserSessions extends Component {
 		.then(dbSession => {
 			console.log("dbSession = ");
 			console.log(dbSession);
+			this.props.updateSessions();
 		});
 
 	};
