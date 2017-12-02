@@ -1,7 +1,16 @@
 import React, { Component } from 'react';
 import {Collapsible, CollapsibleItem} from 'react-materialize';
+import openSocket from 'socket.io-client';
+import API from '../../utils/API';
 
 export default class PublicUserVid extends Component {
+
+
+	state = {
+		socket: openSocket(`http://localhost:${process.env.PORT || 3001}`),
+		sessions: this.props.sessions
+	};
+
 
 	render() {
 		return (

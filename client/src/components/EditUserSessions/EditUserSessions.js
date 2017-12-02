@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import API from '../../utils/API';
 import {Row, Input} from 'react-materialize';
+import openSocket from 'socket.io-client';
 
 
 export default class EditUserSessions extends Component {
 
 	state = {
-		sessions : this.props.sessions
+		sessions : this.props.sessions,
+		socket: openSocket(`http://localhost:${process.env.PORT || 3001}`)
 	};
 
 	componentDidMount = ()=> {
@@ -38,6 +40,10 @@ export default class EditUserSessions extends Component {
 			this.setState({
 				sessions: newArr
 			});
+
+			let socketData = data;
+			socketData._id = dbSession.data._id
+			this.state.socket.emit('edit-session',  socketData);
 		})
 
 	};
@@ -51,6 +57,7 @@ export default class EditUserSessions extends Component {
 			this.setState({
 				sessions: newArr
 			});
+			this.state.socket.emit('delete-session',  dbSession.data._id);
 		})
 
 	};
@@ -58,7 +65,7 @@ export default class EditUserSessions extends Component {
 	render() {
 		let arr = this.state.sessions.map(
 			(element, i) => (	 
-				<div className="col m12" key={i}>
+				<div className="col m12" key={element._id}>
 			        <div className="card-panel grey lighten-5 z-depth-3">
 			          <div className="row valign-wrapper">
 			            <div className="col m12">
@@ -71,6 +78,7 @@ export default class EditUserSessions extends Component {
 								/>
 								<Input 
 									defaultValue={element.date} 
+									type="date"
 									label="date" s={12}
 									onChange={(event)=>{this.handleInputChange(event, i)}}
 									name="date"
