@@ -78,6 +78,7 @@ export default class EditUserSessions extends Component {
 								/>
 								<Input 
 									defaultValue={element.date} 
+									type="date"
 									label="date" s={12}
 									onChange={(event)=>{this.handleInputChange(event, i)}}
 									name="date"
