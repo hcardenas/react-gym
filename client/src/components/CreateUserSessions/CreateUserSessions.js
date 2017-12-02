@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import API from '../../utils/API';
 import {Row, Input} from 'react-materialize';
+import {ToastContainer, toast} from 'react-toastify';
+import {css} from 'glamor';
 
 
 export default class CreateUserSessions extends Component {
@@ -29,7 +31,7 @@ export default class CreateUserSessions extends Component {
 
 	handleFormSubmit = ()=> {
 		console.log("handleFormSubmit on CreateUserSessions needs to call API");
-		alert (`sessions Created ${JSON.stringify(this.state)}`);
+		this.notify("Session Created!");
 		API.createSession({
 			title: this.state.title,
 			date: this.state.date,
@@ -42,6 +44,13 @@ export default class CreateUserSessions extends Component {
 		});
 
 	};
+
+	notify = (message)=> {
+		toast( message, {
+			position: toast.POSITION.TOP_CENTER
+		});
+
+	}
 
 	render() {
 		return ( 
@@ -81,6 +90,13 @@ export default class CreateUserSessions extends Component {
 							>
 								Edit Session
 							</a>
+						</Row>
+						<Row>
+							<ToastContainer
+							type= 'error'
+							hideProgressBar={false}
+							autoClose={5000}
+							/>
 						</Row>
 		         
 		      		</div>

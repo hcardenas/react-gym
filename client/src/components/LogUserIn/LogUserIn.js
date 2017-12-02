@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { Row, Input} from 'react-materialize';
 import * as firebase from 'firebase';
-import {Toast, notify} from '../../components/Toast';
+import {ToastContainer, toast} from 'react-toastify';
+import {css} from 'glamor';
+
 
 
 export default class LogUserIn extends Component {
@@ -28,8 +30,16 @@ export default class LogUserIn extends Component {
   
     promise.catch(e => {
       console.log(e)
+      return this.notify("Invalid Username/Password");
     });
   };
+
+  notify = (message)=> {
+    toast( message, {
+      position: toast.POSITION.TOP_RIGHT
+    });
+
+  }
 
   render() {
     
@@ -55,6 +65,13 @@ export default class LogUserIn extends Component {
           <a 
             className="waves-effect waves-light btn" 
             onClick={this.firebaseLogin}>Log In</a>
+        </Row>
+        <Row>
+          <ToastContainer
+          type= 'error'
+          hideProgressBar={false}
+          autoClose={5000}
+          />
         </Row>
       </div>
       );
