@@ -95,7 +95,7 @@ export default class CreateUserSessions extends Component {
 							<ToastContainer
 							type= 'error'
 							hideProgressBar={false}
-							autoClose={5000}
+							autoClose={2000}
 							/>
 						</Row>
 		         
