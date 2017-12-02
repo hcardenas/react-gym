@@ -8,6 +8,13 @@ export default class Toast extends Component {
 		alert_message: ""
 	}
 
+	componentDidMount() {
+		this.setState({
+			alert_message: ""
+		});
+	}
+
+
 
 	notify = ()=> {
 		toast( this.state.alert_message, {
@@ -19,7 +26,7 @@ export default class Toast extends Component {
 	render() {
 		return (
 			<div>
-				<button onClick={this.notify}>Notify!</button>
+				{this.notify}
 					<ToastContainer
 					type= 'error'
 					hideProgressBar={true}
