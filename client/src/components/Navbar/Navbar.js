@@ -20,11 +20,14 @@ export default class Nav extends Component {
 				
 				{(this.props.isUserlogged === false ? "" : <NavItem href='/' onClick={ () => {this.props.signOutUser()} }>Logout</NavItem>)}
 				
+
 			</Navbar>
 
 		);
 	}
 }
+
+
 
 
 
