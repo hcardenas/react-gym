@@ -24,6 +24,9 @@ export default class LogUserIn extends Component {
     const auth = firebase.auth();
 
     const promise = auth.signInWithEmailAndPassword(this.state.email, this.state.password);
+    promise.then(e => {
+      //this.props.benchMarkCreated();
+    });
   
     promise.catch(e => console.log(e));
   };

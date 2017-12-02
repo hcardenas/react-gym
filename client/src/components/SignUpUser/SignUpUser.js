@@ -47,7 +47,7 @@ export default class SignUpUser extends Component {
               {}, FBid)
             .then(dbBenchmark => 
               {console.log("benchmark created");
-              this.props.benchMarkCreated();
+              //this.props.benchMarkCreated();
             })
       });
 

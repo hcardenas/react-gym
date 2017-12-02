@@ -12,7 +12,7 @@ export default class Nav extends Component {
 		return (
 
 			<Navbar brand='logo' right>
-				<NavItem href='/'><Icon left>home</Icon>Home</NavItem>
+				<NavItem href='/home'><Icon left>home</Icon>Home</NavItem>
 				<NavItem href='/public'><Icon left>public</Icon>Public</NavItem>
 
 
