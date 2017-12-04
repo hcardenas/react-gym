@@ -49,7 +49,7 @@ export default class LogUserIn extends Component {
             name="password"
           />
 
-          <a className="waves-effect waves-light btn" onClick={this.firebaseLogin}>Log In</a>
+          <a className="waves-effect waves-light btn deep-orange accent-2 grey-text text-lighten-5" onClick={this.firebaseLogin}>Log In</a>
         </Row>
       </div>
       );
