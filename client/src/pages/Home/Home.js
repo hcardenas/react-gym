@@ -68,7 +68,7 @@ export default class Home extends Component {
 
 
 							
-							<a href={this.state.editing ? '/home' : '/edit'} className="btn-floating btn-large red"> 
+							<a href={this.state.editing ? '/home' : '/edit'} className="btn-floating btn-large deep-orange accent-2 z-depth-3"> 
 								<i className="large material-icons">{(this.state.editing ? "lock_open" : "lock")}</i>
 
 							</a>
