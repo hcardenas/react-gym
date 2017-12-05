@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Row, Input, Icon} from 'react-materialize';
 import * as firebase from 'firebase';
+import {ToastSuccess, ToastDanger} from 'react-toastr-basic';
 import './LogUserIn.css';
 
 
@@ -22,16 +23,22 @@ export default class LogUserIn extends Component {
     console.log("loggin in user function");
     console.log(`email: ${this.state.email} password: ${this.state.password}`);
 
+    let state = this.state;
+
+    if (state.email === "" || state.password === ""){
+      ToastDanger('Invalid Credentials');
+    }
+
     const auth = firebase.auth();
 
     const promise = auth.signInWithEmailAndPassword(this.state.email, this.state.password);
     promise.then(e => {
-      //this.props.benchMarkCreated();
+      ToastSuccess('Logged In');
     });
   
     promise.catch(e => {
-      console.log(e)
-      return this.notify("Invalid Username/Password");
+
+      ToastDanger(e.message);
     });
   };
 
