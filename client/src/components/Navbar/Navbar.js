@@ -14,6 +14,7 @@ export default class Nav extends Component {
 			<Navbar brand='logo' right>
 				<NavItem href='/home'><Icon left>home</Icon>Home</NavItem>
 				<NavItem href='/public'><Icon left>public</Icon>Public</NavItem>
+				<li><Input s={4} label="Search" validate ><Icon>search</Icon></Input></li>
 				<NavItem><Icon left>person</Icon>{(this.props.isUserlogged === false ? "" : this.props.user.displayName)} </NavItem>
 				
 				{(this.props.isUserlogged === false ? "" : <NavItem href='/' onClick={ () => {this.props.signOutUser()} }>Logout</NavItem>)}
