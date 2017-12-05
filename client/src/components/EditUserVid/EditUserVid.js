@@ -5,6 +5,8 @@ import CreateUserSessions from '../CreateUserSessions';
 import API from '../../utils/API';
 import * as firebase from 'firebase';
 
+import './EditUserVid.css';
+
 export default class EditUserVid extends Component {
 
 

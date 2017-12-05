@@ -11,6 +11,8 @@ import {Container} from "react-materialize";
 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
+import ToastrContainer from 'react-toastr-basic'
+
 import * as firebase from 'firebase';
 
 
@@ -88,7 +90,9 @@ export default class App extends Component {
                   <Footer />
                 </Container>
                 </MuiThemeProvider>
+
               </Router>
+              <ToastrContainer />
             </div>
     );
   }
