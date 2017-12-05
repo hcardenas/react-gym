@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Row, Input} from 'react-materialize';
 import * as firebase from 'firebase';
+import './LogUserIn.css';
 
 
 export default class LogUserIn extends Component {

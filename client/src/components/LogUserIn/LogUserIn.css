@@ -1,0 +1,15 @@
+a:hover {
+	color: #757575;
+}
+
+ /* label focus color */
+   input:focus + label {
+     color: #757575 !important;
+}
+/* label underline focus color */
+   input:focus {
+     border-bottom: 1px solid #757575 !important;
+     box-shadow: 0 1px 0 0 #000 !important;
+}
+
+

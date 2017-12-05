@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {Navbar, NavItem, Icon, Dropdown} from 'react-materialize';
 import * as firebase from 'firebase';
+import './Navbar.css';
 
 
 export default class Nav extends Component {
@@ -11,7 +12,7 @@ export default class Nav extends Component {
 
 		return (
 
-			<Navbar brand='logo' right className="grey darken-1">
+			<Navbar brand='ConnectFit' right className="grey darken-1">
 				<NavItem href='/'><Icon left>home</Icon>Home</NavItem>
 				<NavItem href='/public'><Icon left>public</Icon>Public</NavItem>
 
