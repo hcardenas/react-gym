@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Row, Input} from 'react-materialize';
+import { Row, Input, Icon} from 'react-materialize';
 import * as firebase from 'firebase';
 import {ToastContainer, toast} from 'react-toastify';
 import {css} from 'glamor';
