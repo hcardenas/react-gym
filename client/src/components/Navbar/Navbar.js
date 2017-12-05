@@ -1,7 +1,7 @@
 import React, { Component, Link } from 'react';
 import {Navbar, NavItem, Icon, Dropdown, Input, Button} from 'react-materialize';
 import * as firebase from 'firebase';
-import {browserHistory} from 'react-router';
+import './Navbar.css';
 
 
 export default class Nav extends Component {
@@ -30,8 +30,9 @@ export default class Nav extends Component {
 
 		return (
 
-			<Navbar brand='logo' right>
-				<NavItem href='/home'><Icon left>home</Icon>Home</NavItem>
+
+			<Navbar brand='ConnectFit' right className="grey darken-1">
+				<NavItem href='/'><Icon left>home</Icon>Home</NavItem>
 				<NavItem href='/public'><Icon left>public</Icon>Public</NavItem>
 				<NavItem href={url}><Icon left>search</Icon>Search</NavItem>
 				<li><input onChange={this.changeTerm}></input></li>
