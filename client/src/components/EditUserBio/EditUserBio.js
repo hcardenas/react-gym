@@ -4,7 +4,7 @@ import Dropzone from 'react-dropzone';
 import request from 'superagent';
 
 const CLOUDINARY_UPLOAD_PRESET = 'yvvgfjfq';
-const CLOUDINARY_UPLOAD_URL = 'https://api.cloudinary.com/v1_1/react-cloudinary/upload';
+const CLOUDINARY_UPLOAD_URL = 'https://api.cloudinary.com/v1_1/react-gym/image/upload';
 
 
 export default class UserBio extends Component {
@@ -73,6 +73,15 @@ export default class UserBio extends Component {
 		})
 	};
 
+	handleImageSubmit = event=> {
+		event.preventDefault();
+		API.updateUser({
+			profile_pic: this.state.uploadedFileCloudinaryUrl
+		}, this.props.id).then(dbUser => {
+			console.log("Pic Updated");
+		})
+	};
+
 	render() {
 
 		console.log("ON RENDER BIO = " + this.props.bio);
@@ -97,6 +106,10 @@ export default class UserBio extends Component {
             					<img src={this.state.uploadedFileCloudinaryUrl} />
           					</div>}
         				</div>
+        				<br />
+        				<a onClick={this.handleImageSubmit} className="waves-effect waves-light btn">
+			            				Save
+			            			</a>
 
 		            </div>
 		            <form className="col m7">

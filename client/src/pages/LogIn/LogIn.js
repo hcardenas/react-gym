@@ -14,7 +14,7 @@ export default class LogIn extends Component {
 				<Row>
 					<div className="col m8 offset-m2 text-center z-depth-1 grey lighten-3">
 						<br />
-						<CollHeader/>
+						<CollHeader benchMarkCreated={this.props.benchMarkCreated}/>
 						
       				</div>
 				</Row>

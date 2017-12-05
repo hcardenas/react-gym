@@ -14,11 +14,11 @@ export default class CollHeader extends Component {
 		        <Tabs className='tab z-depth-1 center-align deep-orange accent-2'>
 						<Tab title="Log In" active>
 							<br />
-							<LogUserIn />
+							<LogUserIn benchMarkCreated={this.props.benchMarkCreated} />
 						</Tab>
 						<Tab title="Sign Up">
 							<br />
-							<SignUpUser />
+							<SignUpUser benchMarkCreated={this.props.benchMarkCreated}/>
 						</Tab>
 						
 				</Tabs>

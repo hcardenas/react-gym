@@ -52,6 +52,15 @@ io.on('connection', function(socket) {
 
 	socket.on('new-session', function(msg) {
 		console.log(`server recieved signal of a new session`);
-		io.emit('send-session', {});
+		io.emit('send-session', msg);
+	});
+
+	socket.on('delete-session', function(id) {
+		console.log(`server recieved delete-session`);
+		io.emit('del-session', id);
+	});
+	socket.on('edit-session', function(obj) {
+		console.log(`server recieved edit-session ${JSON.stringify(obj)}`);
+		io.emit('ed-session', obj);
 	});
 });
