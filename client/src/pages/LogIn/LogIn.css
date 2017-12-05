@@ -1,1 +1,7 @@
 .logContainer {min-height: 450px}
+
+body {
+  background-image: url("http://www.wildcatcrossfit.com/wp-content/uploads/2014/03/background-wallpaper-long-view.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}

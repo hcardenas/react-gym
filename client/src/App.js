@@ -21,8 +21,7 @@ export default class App extends Component {
   
   state = {
     userLoggedin : false,
-    user: {},
-    image: 'http://www.wildcatcrossfit.com/wp-content/uploads/2014/03/background-wallpaper-long-view.jpg'
+    user: {}
   };
 
   componentDidMount = () => {
@@ -56,7 +55,6 @@ export default class App extends Component {
 
   render() {
     return (
-            <div style = {{backgroundImage: 'url(' + this.state.image + ')'}}>
 
               <Router>     
                 <MuiThemeProvider >
@@ -90,7 +88,7 @@ export default class App extends Component {
                   <Footer />
                 </MuiThemeProvider>
               </Router>
-            </div>
+           
     );
   }
 }

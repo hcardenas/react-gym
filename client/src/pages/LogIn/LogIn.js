@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import {Row} from 'react-materialize';
 import CollHeader from '../../components/CollHeader';
-
 import './LogIn.css';
+
 
 export default class LogIn extends Component {
 
