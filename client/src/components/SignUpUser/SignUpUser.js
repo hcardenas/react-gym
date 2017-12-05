@@ -3,7 +3,7 @@ import { Row, Input} from 'react-materialize';
 import * as firebase from 'firebase';
 import API from '../../utils/API';
 import {ToastSuccess, ToastDanger} from 'react-toastr-basic';
-import * as EmailValidator from 'email-validator';
+import validator from 'validator';
 
 
 
@@ -26,40 +26,15 @@ export default class SignUpUser extends Component {
   firebaseLogin = () => {
     console.log("sign-up user function");
     console.log(`username: ${this.state.username} email: ${this.state.email} password: ${this.state.password}`);
-  
-    const state = this.state;
-    let errorArray = [];
 
-    if (EmailValidator.validate(state.email)) {
-      errorArray = errorArray.push('Invalid Email');
-    }
-
-    let userErrorArr = this.validateUserName(state.username);
-    if (userErrorArr.length !== 0) {
-      errorArray = errorArray.concat(userErrorArr);
-    }
-
-    let passwordErrorArray = this.validatePassword(state.password);
-    if (passwordErrorArray.length !== 0) {
-      errorArray = errorArray.concat(passwordErrorArray);
-    }
-
-
-    if (errorArray.length !== 0 ) {
-      for (let index in errorArray) {
-        console.log(errorArray[index]);
-        ToastDanger(errorArray[index]);
-      }
-
+    if (this.invalidUserSignIn()) {
+      console.log(true);
       return;
-    }
-
-    console.log(errorArray);
+    } 
 
     const auth = firebase.auth();
-
     const promise = auth.createUserWithEmailAndPassword(this.state.email, this.state.password);
-
+    
     promise.then(e => {
 
       console.log('user created and logged in' + e);
@@ -112,39 +87,48 @@ export default class SignUpUser extends Component {
   };
 
   validatePassword = (pass) => {
-    var passwordValidator = require('password-validator');
-    let schema = new passwordValidator();
+    var owasp = require('owasp-password-strength-test');
+    var result = owasp.test(pass);
 
+    if (result.errors.length === 0) 
+      return [];
+    else 
+      return result.errors;
+
+  };
+
+
+  invalidUserSignIn = () => {
+    let flag = false;
+    const state = this.state;
     let errorArray = [];
- 
-    // Add properties to it 
-    schema
-    .is().min(8)                                    // Minimum length 8 
-    .is().max(100)                                  // Maximum length 100 
-    .has().uppercase()                              // Must have uppercase letters 
-    .has().lowercase()                              // Must have lowercase letters 
-    .has().digits()                                 // Must have digits 
-    .has().not().spaces()                           // Should not have spaces 
-    .is().not().oneOf(['Passw0rd', 'Password123']); // Blacklist these values 
 
-    let arr = schema.validate(pass, { list: true });
-
-    for (let index in arr) {
-      if(arr[index] === "min")
-        errorArray.push('Minimum Password length is 8');
-      if(arr[index] === "max")
-        errorArray.push('Maximum Password length is 100');
-      if(arr[index] === "uppercase")
-        errorArray.push('Password Must have uppercase letters');
-      if(arr[index] === "lowercase")
-        errorArray.push('Password Must have lowercase letters');
-      if(arr[index] === "digits")
-        errorArray.push('Password Must have digits');
-      if(arr[index] === "spaces")
-        errorArray.push('Password Should not have spaces');
+    if (validator.isEmail(state.email)) {
+      errorArray = errorArray.push('Invalid Email');
     }
 
-    return errorArray;
+    let userErrorArr = this.validateUserName(state.username);
+    if (userErrorArr.length !== 0) {
+      errorArray = errorArray.concat(userErrorArr);
+    }
+
+    let passwordErrorArray = this.validatePassword(state.password);
+    if (passwordErrorArray.length !== 0) {
+      errorArray = errorArray.concat(passwordErrorArray);
+    }
+
+
+    if (errorArray.length !== 0 ) {
+      for (let index in errorArray) {
+        console.log(errorArray[index]);
+        ToastDanger(errorArray[index]);
+      }
+
+      flag = true;
+    }
+
+    return flag;
+
   };
 
   render() {
