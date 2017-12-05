@@ -17,6 +17,10 @@ router
   .route("/firebase/:id")
   .get(usersController.findByFirebase);
 
+router
+  .route("/username/:id")
+  .get(usersController.findByUsername);
+
  router
   .route("/session/:id")
   .post(usersController.createSession);

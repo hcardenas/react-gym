@@ -18,7 +18,7 @@ export default class Home extends Component {
 	}
 
 	componentDidMount() {
-		API.getUser(this.props.match.params.user)
+		API.getUsername(this.props.match.params.user)
 		.then(data => {
 			this.setState({
 				user: data.data, 
