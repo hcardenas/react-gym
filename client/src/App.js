@@ -5,9 +5,11 @@ import Home from "./pages/Home";
 import LogIn from "./pages/LogIn";
 import Public from "./pages/Public";
 import EditPage from "./pages/EditPage";
+import Profile from "./pages/Profile";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import {Container} from "react-materialize";
+import Background from './background.jpg';
 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
@@ -57,14 +59,18 @@ export default class App extends Component {
     });
   };
 
+
+
   
 
   render() {
-    return (<div>
+    return (
+            <div>
               <Router>     
                 <MuiThemeProvider >
-                <Container>
                   <Navbar isUserlogged={this.state.userLoggedin} signOutUser={this.signOutUser} user={this.state.user} />
+                <Container>
+
                   <br />
                   
                   { 
@@ -76,6 +82,7 @@ export default class App extends Component {
                               <Route exact path="/home" component={Home} />
                               <Route exact path="/public" component={Public} />
                               <Route exact path="/edit" component={EditPage}/>
+                              <Route exact path="/profile/:user" component={Profile}/>
                               <Route component={NoMatch} />
                             </Switch>
                           </div>
@@ -87,11 +94,13 @@ export default class App extends Component {
                         </div>         
                   }
                   
-                  <Footer />
+
                 </Container>
+                  <Footer />
                 </MuiThemeProvider>
 
               </Router>
+
               <ToastrContainer />
             </div>
     );

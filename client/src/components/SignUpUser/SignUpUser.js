@@ -89,7 +89,7 @@ export default class SignUpUser extends Component {
             onChange={this.handleInputChange} 
             name="password"
           />
-          <a className="waves-effect waves-light btn" onClick={this.firebaseLogin}>Sign Up</a>
+          <a className="waves-effect waves-light btn deep-orange accent-2" onClick={this.firebaseLogin}>Sign Up</a>
         </Row>
       </div>
       );

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {Tabs, Tab} from 'react-materialize';
 import LogUserIn from '../LogUserIn';
 import SignUpUser from '../SignUpUser';
+import './CollHeader.css';
 
 
 export default class CollHeader extends Component {
@@ -10,7 +11,7 @@ export default class CollHeader extends Component {
 			<div>
 				
 
-		        <Tabs className='tab-demo z-depth-1 center-align'>
+		        <Tabs className='tab z-depth-1 center-align deep-orange accent-2'>
 						<Tab title="Log In" active>
 							<br />
 							<LogUserIn benchMarkCreated={this.props.benchMarkCreated} />

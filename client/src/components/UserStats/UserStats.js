@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import './UserStats.css';
 
 export default class UserStats extends Component {
 	constructor(props) {
@@ -51,7 +51,7 @@ export default class UserStats extends Component {
 					<span className="title">{i}</span>
 					<p onClick={()=> alert("wow")}>{obj[i]} 
 					</p>
-					<a href="#!" className="secondary-content"><i className="material-icons">grade</i></a>
+					<a href="#!" className="secondary-content"><i className="material-icons deep-orange-text text-accent-2">grade</i></a>
 				</li>);
 		}
 
