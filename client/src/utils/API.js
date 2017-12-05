@@ -17,6 +17,9 @@ export default {
   getFireBaseUser: function(firebaseId) {
     return axios.get("/api/users/firebase/" + firebaseId);
   },
+  getUsername: function(id) {
+    return axios.get("/api/users/username/" + id);
+  },
   getSession: function(id) {
     return axios.get("/api/sessions/" + id);
   },

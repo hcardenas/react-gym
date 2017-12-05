@@ -27,6 +27,15 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
+  findByUsername: function(req, res) {
+    console.log(req.params.id);
+    db.User
+      .findOne({'username': req.params.id})
+      .populate("sessions")
+      .populate("benchmark")
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
   create: function(req, res) {
     db.User
       .create(req.body)
