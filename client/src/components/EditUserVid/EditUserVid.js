@@ -5,6 +5,8 @@ import CreateUserSessions from '../CreateUserSessions';
 import API from '../../utils/API';
 import * as firebase from 'firebase';
 
+import './EditUserVid.css';
+
 export default class EditUserVid extends Component {
 
 
@@ -64,7 +66,7 @@ export default class EditUserVid extends Component {
 
 		return (
 			<div>
-				<Tabs className='tab-demo z-depth-1 center-align'>
+				<Tabs className='tab-demo z-depth-1 center-align tabPadding'>
 						<Tab title="Create Sessions" >
 							<br />
 							<CreateUserSessions

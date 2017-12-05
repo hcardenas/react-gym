@@ -4,6 +4,7 @@ import {Row, Input} from 'react-materialize';
 import {ToastContainer, toast} from 'react-toastify';
 import {css} from 'glamor';
 import openSocket from 'socket.io-client';
+import {ToastSuccess} from 'react-toastr-basic';
 
 
 
@@ -31,10 +32,9 @@ export default class CreateUserSessions extends Component {
 	handleFormSubmit = ()=> {
 
 		console.log("handleFormSubmit on CreateUserSessions needs to call API");
-		this.notify("Session Created!");
+		
 
-
-
+		ToastSuccess('my successful toast');
 		let newObj = {
 
 			title: this.state.title,
@@ -53,12 +53,6 @@ export default class CreateUserSessions extends Component {
 
 	};
 
-	notify = (message)=> {
-		toast( message, {
-			position: toast.POSITION.TOP_CENTER
-		});
-
-	}
 
 	render() {
 		return ( 
