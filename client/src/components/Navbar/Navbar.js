@@ -31,8 +31,8 @@ export default class Nav extends Component {
 		return (
 
 
-			<Navbar brand='ConnectFit' right className="grey darken-1">
-				<NavItem href='/'><Icon left>home</Icon>Home</NavItem>
+			<Navbar brand='ConnectFit' right className="grey darken-1 navbarHeight">
+				<NavItem href='/home'><Icon left>home</Icon>Home</NavItem>
 				<NavItem href='/public'><Icon left>public</Icon>Public</NavItem>
 				<NavItem href={url}><Icon left>search</Icon>Search</NavItem>
 				<li><input onChange={this.changeTerm}></input></li>

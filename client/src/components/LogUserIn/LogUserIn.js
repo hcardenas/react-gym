@@ -35,13 +35,6 @@ export default class LogUserIn extends Component {
     });
   };
 
-  notify = (message)=> {
-    toast( message, {
-      position: toast.POSITION.TOP_RIGHT
-    });
-
-  }
-
   render() {
     
 
