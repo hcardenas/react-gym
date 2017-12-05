@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import API from '../../utils/API';
 import {Row, Input} from 'react-materialize';
+import {ToastContainer, toast} from 'react-toastify';
+import {css} from 'glamor';
+import openSocket from 'socket.io-client';
+
 
 
 export default class CreateUserSessions extends Component {
@@ -9,11 +13,8 @@ export default class CreateUserSessions extends Component {
 		title: "WOD",
 		date: "00-00-0000",
 		url_video: "https://www.youtube.com/embed/RGPm3QiA3sI",
-		score: "000"	
-	};
-
-	componentDidMount() {
-		
+		score: "000", 
+		socket: openSocket(`http://localhost:${process.env.PORT || 3001}`)
 	};
 
 	handleInputChange = (event)=> {
@@ -28,20 +29,36 @@ export default class CreateUserSessions extends Component {
 	};
 
 	handleFormSubmit = ()=> {
+
 		console.log("handleFormSubmit on CreateUserSessions needs to call API");
-		alert (`sessions Created ${JSON.stringify(this.state)}`);
-		API.createSession({
+		this.notify("Session Created!");
+
+
+
+		let newObj = {
+
 			title: this.state.title,
 			date: this.state.date,
 			url_video: this.state.url_video,
 			score: this.state.score
-		}, this.props.user_id)
+		}
+		API.createSession(newObj, this.props.user_id)
 		.then(dbSession => {
 			console.log("dbSession = ");
 			console.log(dbSession);
+			this.props.updateSessions();
+			// use this code to create new session
+			this.state.socket.emit('new-session',  dbSession.data);
 		});
 
 	};
+
+	notify = (message)=> {
+		toast( message, {
+			position: toast.POSITION.TOP_CENTER
+		});
+
+	}
 
 	render() {
 		return ( 
@@ -82,6 +99,13 @@ export default class CreateUserSessions extends Component {
 							>
 								Create Session
 							</a>
+						</Row>
+						<Row>
+							<ToastContainer
+							type= 'error'
+							hideProgressBar={false}
+							autoClose={2000}
+							/>
 						</Row>
 		         
 		      		</div>

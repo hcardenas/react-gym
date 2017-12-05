@@ -33,17 +33,28 @@ export default class SignUpUser extends Component {
       var FBid = e.uid;
       e.updateProfile({
         displayName: this.state.username
-      }).then(() => console.log("user updated"));
-    
-      API.createUser({
+      }).then(() => {
+
+        API.createUser({
           username: this.state.username,
           email: this.state.email,
           firebase_id: e.uid
         }).then(dbUser => {
           console.log("user created");
-            API.createBenchmark({}, FBid).then(dbBenchmark => {console.log("benchmark created");})
         });
+
+        API.createBenchmark(
+              {}, FBid)
+            .then(dbBenchmark => 
+              {console.log("benchmark created");
+              //this.props.benchMarkCreated();
+            })
       });
+
+
+      });
+    
+
 
     promise.catch(e => {console.log(e.message)});
 

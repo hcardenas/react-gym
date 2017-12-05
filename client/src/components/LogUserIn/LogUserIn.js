@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Row, Input} from 'react-materialize';
+import { Row, Input, Icon} from 'react-materialize';
 import * as firebase from 'firebase';
 import './LogUserIn.css';
 
@@ -25,9 +25,22 @@ export default class LogUserIn extends Component {
     const auth = firebase.auth();
 
     const promise = auth.signInWithEmailAndPassword(this.state.email, this.state.password);
+    promise.then(e => {
+      //this.props.benchMarkCreated();
+    });
   
-    promise.catch(e => console.log(e));
+    promise.catch(e => {
+      console.log(e)
+      return this.notify("Invalid Username/Password");
+    });
   };
+
+  notify = (message)=> {
+    toast( message, {
+      position: toast.POSITION.TOP_RIGHT
+    });
+
+  }
 
   render() {
     
@@ -51,6 +64,7 @@ export default class LogUserIn extends Component {
           />
 
           <a className="waves-effect waves-light btn deep-orange accent-2 grey-text text-lighten-5" onClick={this.firebaseLogin}>Log In</a>
+
         </Row>
       </div>
       );
