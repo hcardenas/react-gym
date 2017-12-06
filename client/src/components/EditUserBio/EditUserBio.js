@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import API from '../../utils/API';
 import Dropzone from 'react-dropzone';
 import request from 'superagent';
+import {ToastSuccess,ToastDanger} from 'react-toastr-basic';
 
 const CLOUDINARY_UPLOAD_PRESET = 'yvvgfjfq';
 const CLOUDINARY_UPLOAD_URL = 'https://api.cloudinary.com/v1_1/react-gym/image/upload';
@@ -70,6 +71,9 @@ export default class UserBio extends Component {
 			bio: this.state.bio
 		}, this.props.id).then(dbUser => {
 			console.log("Bio Updated");
+			ToastSuccess('Bio Updated');
+		}).catch(e => {
+			ToastDanger(e.message);
 		})
 	};
 
@@ -79,6 +83,9 @@ export default class UserBio extends Component {
 			profile_pic: this.state.uploadedFileCloudinaryUrl
 		}, this.props.id).then(dbUser => {
 			console.log("Pic Updated");
+			ToastSuccess('Picture Updated');
+		}).catch(e => {
+			ToastDanger(e.message);
 		})
 	};
 
