@@ -11,8 +11,6 @@ import Footer from "./components/Footer";
 import {Container} from "react-materialize";
 import Background from './background.jpg';
 
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-
 import ToastrContainer from 'react-toastr-basic'
 
 import * as firebase from 'firebase';
@@ -67,7 +65,7 @@ export default class App extends Component {
     return (
             <div>
               <Router>     
-                <MuiThemeProvider >
+                  <div>
                   <Navbar isUserlogged={this.state.userLoggedin} signOutUser={this.signOutUser} user={this.state.user} />
                 <Container>
 
@@ -97,7 +95,7 @@ export default class App extends Component {
 
                 </Container>
                   <Footer />
-                </MuiThemeProvider>
+                </div>
 
               </Router>
 

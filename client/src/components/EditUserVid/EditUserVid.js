@@ -7,6 +7,9 @@ import * as firebase from 'firebase';
 
 import './EditUserVid.css';
 
+
+
+
 export default class EditUserVid extends Component {
 
 
@@ -31,8 +34,10 @@ export default class EditUserVid extends Component {
 
 
 	createUserEdit = () => {
+
+
 		let userArray = this.props.sessions.map((element) => (
-				 
+				 	
 					<div className="col m12" key={element.title}>
 				        <div className="card-panel grey lighten-5 z-depth-3">
 				          <div className="row valign-wrapper">
