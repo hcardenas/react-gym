@@ -14,6 +14,8 @@ export default class PublicUserVid extends Component {
 
 
 	render() {
+		let moment = require('moment');
+
 		return (
 			
 			<div className="col m12" > 
@@ -21,7 +23,7 @@ export default class PublicUserVid extends Component {
 				{
 					this.props.sessions.map((element) => (						 
 						   
-								<CollapsibleItem header={`Title: ${element.title} Date: ${element.date} Score: ${element.score}`} icon='featured_video' key={element._id}>
+								<CollapsibleItem header={`Title: ${element.title} Date: ${moment(element.date).format('Do MMMM YYYY')} Score: ${element.score}`} icon='featured_video' key={element._id}>
 									<div className= "video-container">
 								         <iframe width = "300" height = "200"
 								         	title={element.title}
