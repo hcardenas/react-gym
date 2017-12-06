@@ -4,8 +4,7 @@ import * as firebase from 'firebase';
 import API from '../../utils/API';
 import {ToastSuccess, ToastDanger} from 'react-toastr-basic';
 import validator from 'validator';
-
-
+import './SignUpUser.css';
 
 
 export default class SignUpUser extends Component {
@@ -163,7 +162,7 @@ export default class SignUpUser extends Component {
             onChange={this.handleInputChange} 
             name="password"
           />
-          <a className="waves-effect waves-light btn deep-orange accent-2" onClick={this.firebaseLogin}>Sign Up</a>
+          <a className="waves-effect waves-light btn deep-orange accent-2 margin38" onClick={this.firebaseLogin}>Sign Up</a>
         </Row>
       </div>
       );
