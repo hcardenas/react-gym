@@ -43,11 +43,6 @@ const server = app.listen(PORT, function() {
 
 const io = require('socket.io')(server);
 
-io.configure(function () {  
-  io.set("transports", ["xhr-polling"]); 
-  io.set("polling duration", 10); 
-});
-
 io.on('connection', function(socket) {
 	console.log('We have a connection');
 	socket.on('new-msg', function(msg) {
