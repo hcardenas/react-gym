@@ -7,7 +7,12 @@
 	text-decoration: none;
 }
 
+
 a:hover {
 	color: #ff6e40;
 	text-decoration: none;
+
+.navbarHeight {
+	height: 65px;
+
 }

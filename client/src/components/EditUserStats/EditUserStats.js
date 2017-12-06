@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import API from '../../utils/API';
+import {ToastSuccess,ToastDanger} from 'react-toastr-basic';
 
 
 export default class UserStats extends Component {
@@ -22,7 +23,7 @@ export default class UserStats extends Component {
 			stats: this.props.user_stats 
 		});
 
-	}
+	};
 
 	handleInputChange = event=> {
 		let value = event.target.value;
@@ -31,14 +32,17 @@ export default class UserStats extends Component {
 		this.setState({
 			[name]: value
 		});
-	}
+	};
 
 	handleFormSubmit = (name, value)=> {
 		API.updateBenchmark({[name]: value}, this.props.user_stats._id)
 		.then(dbBenchmark => {
-			console.log("dbBenchmark = ");
-			console.log(dbBenchmark);
+			
+			ToastSuccess('Benchmark Updated');
 		})
+		.catch(e=>{
+			ToastDanger(e.message);
+		});
 
 	};
 
