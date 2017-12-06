@@ -51,7 +51,7 @@ export default class UserStats extends Component {
 
 		return (
 			<div className="col m12">
-				<ul className="collection z-depth-3">
+				<ul className="collection z-depth-3 border">
 			    	{arr}
 			  	</ul>
 			</div>

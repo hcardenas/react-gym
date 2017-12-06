@@ -66,8 +66,8 @@ export default class CreateUserSessions extends Component {
 	render() {
 		return ( 
 			<div className="col m12">
-		        <div className="card-panel grey lighten-5 z-depth-3">
-		          <div className="border row valign-wrapper">
+		        <div className="card-panel grey lighten-5 z-depth-3 border">
+		          <div className="row valign-wrapper">
 		            <div className="col m12">
 			            <Row>
 							<Input 
