@@ -23,8 +23,8 @@ export default class Foot extends Component {
 	          </div>
 	          <div className="footer-copyright deep-orange">
 	            <div className="container">
-	            © 2014 Copyright Text
-	            <a className="grey-text text-lighten-4 right" href="#!">More Links</a>
+	            © 2018
+	            <a className="grey-text text-lighten-4 right" href="#!"></a>
 	            </div>
 	          </div>
 	        </footer>
