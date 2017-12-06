@@ -31,16 +31,9 @@ export default class LogUserIn extends Component {
   
     promise.catch(e => {
       console.log(e)
-      return this.notify("Invalid Username/Password");
     });
   };
 
-  notify = (message)=> {
-    toast( message, {
-      position: toast.POSITION.TOP_RIGHT
-    });
-
-  }
 
   render() {
     

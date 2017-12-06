@@ -76,14 +76,14 @@ export default class UserStats extends Component {
 							onChange={this.handleInputChange}
 							placeholder="Enter your stats"/>
 							<a onClick={() => this.handleFormSubmit(obj[i], this.state[obj[i]])} 
-							className="waves-effect waves-light btn"
+							className="waves-effect waves-light btn deep-orange accent-2"
 							>
 			            		Save
 			            	</a>
 
 						</div>
 					</div>
-					<a href="#!" className="secondary-content"><i className="material-icons">grade</i></a>
+					<a href="#!" className="secondary-content"><i className="material-icons deep-orange-text text-accent-2">grade</i></a>
 				</li>);
 		}
 

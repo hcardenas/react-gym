@@ -1,0 +1,17 @@
+       .tabs .tab a {
+            color:#424242;
+            text-decoration: none;
+        } /*Black color to the text*/
+
+        .tabs .tab a.active {
+            background-color: #ff6e40;
+            color: #f5f5f5;
+        } /*Background and text color when a tab is active*/
+
+        .tabs .indicator {
+            background-color: #757575;
+        } /*Color of underline*/
+        
+        .tabs .tab a:hover {
+            color: #757575;
+        } /*Text color on hover*/
