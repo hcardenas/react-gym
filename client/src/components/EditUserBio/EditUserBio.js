@@ -94,7 +94,7 @@ export default class UserBio extends Component {
 		console.log("ON RENDER BIO = " + this.props.bio);
 		return (
 			<div className="col m12">
-		        <div className="card-panel grey lighten-5 z-depth-3">
+		        <div className="card-panel grey lighten-5 z-depth-3 border">
 		          <div className="row valign-wrapper">
 		            <div className="col m5">
 		            	<div className="FileUpload">
@@ -110,7 +110,7 @@ export default class UserBio extends Component {
           					{this.state.uploadedFileCloudinaryUrl === '' ? null :
           					<div>
             					<p>{this.state.uploadedFile.name}</p>
-            					<img src={this.state.uploadedFileCloudinaryUrl} className="responsive-img"/>
+            					<img src={this.state.uploadedFileCloudinaryUrl} className="circle responsive-img"/>
           					</div>}
         				</div>
         				<br />

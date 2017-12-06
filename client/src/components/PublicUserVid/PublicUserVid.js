@@ -17,7 +17,7 @@ export default class PublicUserVid extends Component {
 		return (
 			
 			<div className="col m12" > 
-				<Collapsible accordion>
+				<Collapsible accordion className="border">
 				{
 					this.props.sessions.map((element) => (						 
 						   

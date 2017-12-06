@@ -10,7 +10,7 @@ export default class UserVid extends Component {
 
 			this.props.sessions.map((element, i) => {
 					return( <div className="col m12" key={i}>
-				        <div className="card-panel grey lighten-5 z-depth-3">
+				        <div className="card-panel grey lighten-5 z-depth-3 border">
 				          <div className="row valign-wrapper">
 				            <div className="col m3">
 				            	<p>Title: {element.title}</p>
