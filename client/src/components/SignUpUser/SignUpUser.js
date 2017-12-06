@@ -34,7 +34,7 @@ export default class SignUpUser extends Component {
 
     const auth = firebase.auth();
     const promise = auth.createUserWithEmailAndPassword(this.state.email, this.state.password);
-    
+
     promise.then(e => {
 
       console.log('user created and logged in' + e);
@@ -103,17 +103,20 @@ export default class SignUpUser extends Component {
     const state = this.state;
     let errorArray = [];
 
-    if (validator.isEmail(state.email)) {
-      errorArray = errorArray.push('Invalid Email');
+    if (!validator.isEmail(state.email)) {
+      console.log('email failed');
+      errorArray.push('Invalid Email');
     }
 
     let userErrorArr = this.validateUserName(state.username);
     if (userErrorArr.length !== 0) {
+      console.log('email failed');
       errorArray = errorArray.concat(userErrorArr);
     }
 
     let passwordErrorArray = this.validatePassword(state.password);
     if (passwordErrorArray.length !== 0) {
+      console.log('email failed');
       errorArray = errorArray.concat(passwordErrorArray);
     }
 

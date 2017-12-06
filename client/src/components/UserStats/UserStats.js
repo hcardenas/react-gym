@@ -11,17 +11,12 @@ export default class UserStats extends Component {
 	}
 
 	componentDidMount() {
-		console.log(this.props);
-		console.log("CDM = " + this.props.benchmark);
 		this.setState({stats: this.formatBenchmark()});
-		console.log(this.state.stats);
   	}
 
   	formatBenchmark = () => {
-		console.log("formatBenchmark working");
-		console.log("props.benchmark = " + this.props.benchmark);
+
 		let obj = this.props.benchmark;
-		console.log("OBJ = " + obj);
     	var benchmarkObj = {
     		"Issabelle": obj.issabelle,
     		"10k Run": obj.Tenk_run,
@@ -40,10 +35,8 @@ export default class UserStats extends Component {
 
 	render() {
 
-		console.log("props.benchmark (outside) = " + this.props.benchmark);
 		let arr =[];
 		let obj = this.formatBenchmark(this.state.stats);
-		console.log('Inside of User Stats ' + JSON.stringify(obj));
 		for (let i in obj) {
 			arr.push(
 				<li key={i} className="collection-item avatar">
