@@ -1,6 +1,4 @@
 
-
-
 .tabs .tab a {
     color:#EF764D;
     text-decoration: none;
@@ -19,4 +17,7 @@
     color: #757575;
 } /*Text color on hover*/
 
+.tabPadding {
+	margin-top: 7px;
+}
 

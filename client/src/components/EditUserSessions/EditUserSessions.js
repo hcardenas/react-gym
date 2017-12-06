@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import API from '../../utils/API';
 import {Row, Input} from 'react-materialize';
 import openSocket from 'socket.io-client';
+import {ToastSuccess,ToastDanger} from 'react-toastr-basic';
 
 
 export default class EditUserSessions extends Component {
@@ -44,7 +45,11 @@ export default class EditUserSessions extends Component {
 			let socketData = data;
 			socketData._id = dbSession.data._id
 			this.state.socket.emit('edit-session',  socketData);
+			ToastSuccess('Session Edited');
 		})
+		.catch(e=> {
+			ToastDanger( e.message);
+		});
 
 	};
 
@@ -58,7 +63,11 @@ export default class EditUserSessions extends Component {
 				sessions: newArr
 			});
 			this.state.socket.emit('delete-session',  dbSession.data._id);
+			ToastSuccess('Session Deleted');
 		})
+		.catch(e=> {
+			ToastDanger( e.message);
+		});
 
 	};
 
@@ -78,8 +87,8 @@ export default class EditUserSessions extends Component {
 								/>
 								<Input 
 									defaultValue={element.date} 
-									type="date"
 									label="date" s={12}
+									type='date'
 									onChange={(event)=>{this.handleInputChange(event, i)}}
 									name="date"
 								/>

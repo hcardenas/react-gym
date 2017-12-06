@@ -3,7 +3,10 @@ import React, { Component } from 'react';
 export default class UserVid extends Component {
 
 	render() {
+		let moment = require('moment');
+		console.log(moment(new Date()).format('Do MMMM YYYY'));
 		return (
+			
 
 			this.props.sessions.map((element, i) => {
 					return( <div className="col m12" key={i}>
@@ -11,7 +14,7 @@ export default class UserVid extends Component {
 				          <div className="row valign-wrapper">
 				            <div className="col m3">
 				            	<p>Title: {element.title}</p>
-				            	<p>date: {element.date}</p>
+				            	<p>date: {moment(element.date).format('Do MMMM YYYY')}</p>
 				            	<p>score: {element.score}</p>
 				            </div>
 				            
