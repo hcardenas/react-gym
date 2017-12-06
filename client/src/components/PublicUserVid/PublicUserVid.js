@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {Collapsible, CollapsibleItem} from 'react-materialize';
 import openSocket from 'socket.io-client';
 import API from '../../utils/API';
+import './PublicUserVid.css';
 
 export default class PublicUserVid extends Component {
 

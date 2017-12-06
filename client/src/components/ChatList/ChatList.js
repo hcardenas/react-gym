@@ -16,7 +16,7 @@ export default class ChatList extends Component {
 			let msg = ele.msg;
 
 			return(
-				<div key={i} className={(this.state.user === user) ? "teal-text" : ""}>
+				<div key={i} className={(this.state.user === user) ? "deep-orange-text text-accent-2" : ""}>
 					<Row>
 						<li className={(this.state.user === user) ? "left" : "right"}>
 							<Chip >

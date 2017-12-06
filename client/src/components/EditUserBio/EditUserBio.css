@@ -3,4 +3,14 @@
 	max-height: 500px;
 }
 
+.bio-img {
+	border-style: solid;
+	border-width: 2px;
+	border-color: #ff6e40;
+}
+
+a:hover {
+	color: #757575;
+}
+
 

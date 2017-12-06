@@ -88,7 +88,7 @@ export default class Chat extends Component {
 						/> 
 						
 
-						<button onClick={this.handleSubmit} className='waves-effect waves-light btn col m3 offset-m1'>
+						<button onClick={this.handleSubmit} className='waves-effect waves-light btn col m3 offset-m1 deep-orange accent-2'>
 							<i className="large material-icons">send</i>
 						</button> 
 					</div>

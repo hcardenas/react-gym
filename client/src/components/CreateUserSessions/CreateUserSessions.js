@@ -4,7 +4,11 @@ import {Row, Input} from 'react-materialize';
 import {ToastContainer, toast} from 'react-toastify';
 import {css} from 'glamor';
 import openSocket from 'socket.io-client';
+
+import './CreateUserSessions.css';
+
 import {ToastSuccess,ToastDanger} from 'react-toastr-basic';
+
 
 
 
@@ -63,7 +67,7 @@ export default class CreateUserSessions extends Component {
 		return ( 
 			<div className="col m12">
 		        <div className="card-panel grey lighten-5 z-depth-3">
-		          <div className="row valign-wrapper">
+		          <div className="border row valign-wrapper">
 		            <div className="col m12">
 			            <Row>
 							<Input 
@@ -93,18 +97,11 @@ export default class CreateUserSessions extends Component {
 							/>
 						</Row>
 						<Row>
-							<a className="waves-effect waves-light btn" 
+							<a className="waves-effect waves-light btn deep-orange accent-2" 
 								onClick={this.handleFormSubmit}
 							>
 								Create Session
 							</a>
-						</Row>
-						<Row>
-							<ToastContainer
-							type= 'error'
-							hideProgressBar={false}
-							autoClose={2000}
-							/>
 						</Row>
 		         
 		      		</div>

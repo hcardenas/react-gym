@@ -38,9 +38,11 @@ export default class LogUserIn extends Component {
   
     promise.catch(e => {
 
+
       ToastDanger(e.message);
     });
   };
+
 
   render() {
     

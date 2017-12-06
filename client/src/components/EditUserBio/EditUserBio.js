@@ -107,7 +107,7 @@ export default class UserBio extends Component {
           					</div>}
         				</div>
         				<br />
-        				<a onClick={this.handleImageSubmit} className="waves-effect waves-light btn">
+        				<a onClick={this.handleImageSubmit} className="waves-effect waves-light btn deep-orange accent-2">
 			            				Save
 			            			</a>
 
@@ -124,7 +124,7 @@ export default class UserBio extends Component {
 			            			placeholder={this.props.bio}
 			            			>
 			            			</textarea>
-			            			<a onClick={this.handleFormSubmit} className="waves-effect waves-light btn">
+			            			<a onClick={this.handleFormSubmit} className="waves-effect waves-light btn deep-orange accent-2">
 			            				Save
 			            			</a>
 		            		</div>
